@@ -1,0 +1,41 @@
+.content-info {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	z-index: 9999;
+
+	nav {
+		background: #606060;
+
+		ul {
+			@extend %clearfix;
+			@extend %reset;
+			list-style-type: none;
+
+			li {
+				width: 25%;
+				float: left;
+				@include transition(.2s ease-in);
+
+				&:nth-child(even) { background: #464646; }
+				&:nth-child(even).active a, &:nth-child(even) a:hover { background: #203d76; }
+				&:nth-child(odd).active a, &:nth-child(odd) a:hover { background: #4ba747; }
+
+				a {
+					display: block;
+					@include rem('padding', 22px 0);
+					text-align: center;
+					color: #fff;
+					font-family: $header_font_family;
+					@include font-size(25px);
+					line-height: 1;
+					text-transform: uppercase;
+					@include transition(.2s ease-in);
+
+					&:hover { text-decoration: none; }
+				}
+			}
+		}
+	}
+}

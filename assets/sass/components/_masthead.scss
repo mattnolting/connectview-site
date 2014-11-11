@@ -1,0 +1,9 @@
+header.masthead {
+	position: absolute;
+	top: 0;
+	@include rem('padding', 8px 15px);
+	width: 100%;
+	margin: 0;
+	background: #fff;
+	z-index: 9999;
+}

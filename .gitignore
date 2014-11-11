@@ -1,0 +1,15 @@
+# Include your project-specific ignores in this file
+# Read about how to use .gitignore: https://help.github.com/articles/ignoring-files
+node_modules
+.sass-cache
+assets/css/main.min.css.map
+node_modules
+.tmp
+bower_components
+temp
+.idea/
+Gemfile.lock
+*master.css
+.editorconfig
+lang/
+fullpagejs/
