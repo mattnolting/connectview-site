@@ -18,7 +18,7 @@ function roots_scripts() {
   // It's kept in the header instead of footer to avoid conflicts with plugins.
   if (!is_admin() && current_theme_supports('jquery-cdn')) {
 	wp_deregister_script('jquery');
-    wp_register_script('jquery', get_template_directory_uri() . '/assets/js/vendor/jquery-2.1.1.min.js', array(), null, false);
+    wp_register_script('jquery', get_template_directory_uri() . '/assets/js/vendor/jquery-1.11.0.min.js', array(), null, false);
 	add_filter('script_loader_src', 'roots_jquery_local_fallback', 10, 2);
   }
 

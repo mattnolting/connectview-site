@@ -1,4 +1,5 @@
 html {
+	font-size: 100%;
 
 	h1, h2, h3, h4, h5, h6 {
 		font-family: $header_font_family;
@@ -8,6 +9,7 @@ html {
 h1 {
 	color: $header_font_color;
 	@include font-size($h1_font_size);
+	line-height: 1;
 }
 
 main.main {
@@ -15,5 +17,5 @@ main.main {
 }
 
 p {
-	@include rem('line-height', $paragraph_line_height);
+	@include font-size($paragraph_font_size, $paragraph_line_height);
 }

@@ -19,8 +19,28 @@ Template Name: Page - Home
 	</div>
 	<div data-anchor="section2" class="section section-whoweserve">
 		<div class="container">
-			<h2>Section 2</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At commodi debitis dignissimos earum error explicabo, hic incidunt iure iusto necessitatibus nesciunt optio quasi quisquam sapiente soluta suscipit veniam voluptatibus voluptatum?</p>
+			<div class="iphone">
+				<div class="block block-blue center">
+					<h2 class="caps">Education</h2>
+					<p>Video and this presence have also made great over.</p>
+					<a href="#" class="btn btn-blue">Learn More</a>
+				</div>
+
+			</div>
+			<div class="ipad">
+				<div class="block block-blue center">
+					<h2 class="caps">Business</h2>
+					<p>Video and this presence have also made great over.</p>
+					<a href="#" class="btn btn-blue">Learn More</a>
+				</div>
+			</div>
+			<div class="imac">
+				<div class="block block-blue center">
+					<h2 class="caps">Government</h2>
+					<p>Video and this presence have also made great over.</p>
+					<a href="#" class="btn btn-blue">Learn More</a>
+				</div>
+			</div>
 		</div>
 	</div>
 	<div data-anchor="section3" class="section section-solutions">
@@ -29,4 +49,4 @@ Template Name: Page - Home
 	<div data-anchor="section4" class="section section-consulting">Some section</div>
 	<div data-anchor="section5" class="section section-contact">Contact Us</div>
 </div>
-<?php get_template_part('templates/footer'); ?>
+

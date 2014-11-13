@@ -47,11 +47,22 @@ figure.alignnone {
   margin-left: 0;
   margin-right: 0; }
 
+.caps {
+  text-transform: uppercase; }
+
 html {
-  font-size: 16px;
-  font-size: 1rem;
-  line-height: 22px;
-  line-height: 1.375rem; }
+  font-size: 100%; }
+
+.btn {
+  background: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  color: #192b4d;
+  -moz-transition: 0.2s;
+  -o-transition: 0.2s;
+  -webkit-transition: 0.2s;
+  transition: 0.2s; }
+  .btn:hover {
+    background: white; }
 
 @font-face {
   font-family: 'museo';
@@ -71,38 +82,50 @@ html {
   src: url("../fonts/museosans-500-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/museosans-500-webfont.woff2") format("woff2"), url("../fonts/museosans-500-webfont.woff") format("woff"), url("../fonts/museosans-500-webfont.ttf") format("truetype"), url("../fonts/museosans-500-webfont.svg#museo_sans500") format("svg");
   font-weight: 500;
   font-style: normal; }
-html h1, html h2, html h3, html h4, html h5, html h6 {
-  font-family: "museo", serif; }
+html {
+  font-size: 100%; }
+  html h1, html h2, html h3, html h4, html h5, html h6 {
+    font-family: "museo", serif; }
 
 h1 {
   color: #2572b8;
   font-size: 20px;
   font-size: 1.25rem;
   line-height: 28px;
-  line-height: 1.75rem; }
+  line-height: 1.75rem;
+  line-height: 1; }
 
 p {
+  font-size: 16px;
+  font-size: 1rem;
   line-height: 24px;
   line-height: 1.5rem; }
 
 header.masthead {
   position: absolute;
   top: 0;
-  padding: 8px 15px;
-  padding: 0.5rem 0.9375rem;
+  padding: 12px 42px;
+  padding: 0.75rem 2.625rem;
   width: 100%;
   margin: 0;
   background: #fff;
   z-index: 9999; }
 
 .content-info {
+  display: none;
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
   z-index: 9999; }
+  @media (min-width: 768px) {
+    .content-info {
+      display: block; } }
   .content-info nav {
-    background: #606060; }
+    background: #606060;
+    -moz-box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2); }
     .content-info nav ul {
       list-style-type: none; }
       .content-info nav ul li {
@@ -118,17 +141,20 @@ header.masthead {
           background: #203d76; }
         .content-info nav ul li:nth-child(odd).active a, .content-info nav ul li:nth-child(odd) a:hover {
           background: #4ba747; }
+        .content-info nav ul li.active a {
+          color: #fff; }
         .content-info nav ul li a {
           display: block;
-          padding: 22px 0;
-          padding: 1.375rem 0;
+          padding: 20px 0;
+          padding: 1.25rem 0;
           text-align: center;
-          color: #fff;
+          color: #ccc;
           font-family: "museo", serif;
           font-size: 25px;
           font-size: 1.5625rem;
           line-height: 35px;
           line-height: 2.1875rem;
+          font-weight: 100;
           line-height: 1;
           text-transform: uppercase;
           -moz-transition: ease-in 0.2s;
@@ -136,6 +162,7 @@ header.masthead {
           -webkit-transition: ease-in 0.2s;
           transition: ease-in 0.2s; }
           .content-info nav ul li a:hover {
+            color: #fff;
             text-decoration: none; }
 
 .nav-footer {
@@ -160,11 +187,62 @@ header.masthead {
     margin: 0 20%;
     text-transform: uppercase; } }
 
+.block.block-blue {
+  padding: 20px;
+  padding: 1.25rem;
+  background: #203d76;
+  color: #fff; }
+  .block.block-blue h1, .block.block-blue h2, .block.block-blue h3, .block.block-blue h4, .block.block-blue h5, .block.block-blue h6 {
+    color: #fff; }
+
 .fullpage-wrapper .section {
   overflow: hidden; }
   .fullpage-wrapper .section .container {
     position: relative;
     z-index: 9999; }
+
+.section.section-whoweserve .block {
+  margin-bottom: 12px;
+  margin-bottom: 0.75rem; }
+.section.section-whoweserve .container {
+  text-align: center; }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .section.section-whoweserve .container {
+      width: 100%; } }
+
+.ipad, .iphone, .imac {
+  display: inline-block;
+  position: relative; }
+  .ipad .block, .iphone .block, .imac .block {
+    position: absolute; }
+
+.iphone {
+  background: url("../img/img_iphone.png");
+  width: 231px;
+  height: 433px; }
+  .iphone .block {
+    left: 20px;
+    top: 168px;
+    height: 212px;
+    width: 190px; }
+
+.ipad {
+  background: url("../img/img_ipad.png");
+  width: 373px;
+  height: 506px; }
+  .ipad .block {
+    left: 36px;
+    top: 218px;
+    width: 301px; }
+
+.imac {
+  background: url("../img/img_imac.png");
+  width: 467px;
+  height: 403px; }
+  .imac .block {
+    left: 19px;
+    bottom: 131px;
+    width: 430px; }
 
 .ui-video-background {
   display: none; }

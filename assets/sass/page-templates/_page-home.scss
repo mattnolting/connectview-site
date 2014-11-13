@@ -15,7 +15,62 @@
 }
 
 .section.section-whoweserve {
+	.block {
+		@include rem('margin-bottom', 12px);
+	}
 
+	.container {
+		text-align: center;
+		@media (min-width: 768px) and (max-width: 1024px) {
+			width: 100%;
+		}
+	}
+}
+
+.ipad, .iphone, .imac {
+	display: inline-block;
+	position: relative;
+
+	.block {
+		position: absolute;
+	}
+}
+
+.iphone {
+	background: url("../img/img_iphone.png");
+	width: 231px;
+	height: 433px;
+
+	.block {
+		left: 20px;
+		top: 168px;
+		height: 212px;
+		width: 190px;
+	}
+}
+
+.ipad {
+	background: url("../img/img_ipad.png");
+	width: 373px;
+	height: 506px;
+
+	.block {
+		left: 36px;
+		top: 218px;
+		width: 301px;
+	}
+}
+
+.imac {
+	background: url("../img/img_imac.png");
+	width: 467px;
+	height: 403px;
+
+	.block {
+		left: 19px;
+		bottom: 131px;
+		width: 430px;
+	}
 }
 
 .section.section-solutions {

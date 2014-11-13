@@ -37,6 +37,7 @@
 					anchors:['section1', 'section2', 'section3', 'section4', 'section5'],
 					touchSensitivity: 40,
 					normalScrollElementTouchThreshold: 20,
+					responsive: 1024,
 					//navigation:true,
 					//navigation: true,
 					//navigationPosition: 'right',
@@ -48,12 +49,13 @@
 				});
 
 				$('.section.section-primary .vidbg').videobackground({
-					videoSource: [['http://localhost:8888/connectview-site/wp-content/themes/roots-sass/assets/video/meeting.mp4', 'video/mp4'],
-						['http://localhost:8888/connectview-site/wp-content/themes/roots-sass/assets/video/meeting.webm', 'video/webm'],
-						['http://localhost:8888/connectview-site/wp-content/themes/roots-sass/assets/video/meeting.ogg', 'video/ogg']],
+					videoSource: [['http://localhost:8888/connectview-site/wp-content/themes/roots-sass/assets/video/shoe.mp4', 'video/mp4'],
+						['http://localhost:8888/connectview-site/wp-content/themes/roots-sass/assets/video/shoe.webm', 'video/webm'],
+						['http://localhost:8888/connectview-site/wp-content/themes/roots-sass/assets/video/shoe.ogg', 'video/ogv']],
 					controlPosition: '',
 					poster: 'http://localhost:8888/connectview-site/wp-content/themes/roots-sass/assets/img/l_connect-view.jpg',
 					loop: true,
+					muted: true,
 
 					loadedCallback: function() {
 						$(this).videobackground('mute');
