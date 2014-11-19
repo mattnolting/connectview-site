@@ -1,11 +1,18 @@
 .btn {
-  background: rgba(255, 255, 255, .8);
-  text-transform: uppercase;
-  color: #192b4d;
-  @include transition(.2s);
+	background: rgba(255, 255, 255, .8);
+	text-transform: uppercase;
+	color: #192b4d;
+	@include transition(.2s);
+	font-family: 'museo', sans-serif;
+	@include font-size(22px);
+
+	&:focus, &:active {
+		outline: none !important;
+		@include box-shadow(none);
+	}
 
 	&:hover {
-    background: rgba(255, 255, 255, 1);
+        background: rgba(255, 255, 255, 1);
 	}
 
 	&.btn-primary {

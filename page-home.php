@@ -44,7 +44,30 @@ Template Name: Page - Home
 		</div>
 	</div>
 	<div data-anchor="section3" class="section section-solutions">
-		<h1>Section 3</h1>
+		<div class="container-fluid">
+			<nav class="flexslider-controls">
+				<ol class="flex-control-nav">
+					<li>
+						<button class="btn">Education</button>
+					</li>
+					<li>
+						<button class="btn">Business</button>
+					</li>
+					<li>
+						<button class="btn">Government</button>
+					</li>
+				</ol>
+			</nav>
+			<section class="slider">
+				<div class="flexslider">
+					<ul class="slides">
+						<li class="slide1">Slide1</li>
+						<li class="slide2">Slide2</li>
+						<li class="slide3">Slide3</li>
+					</ul>
+				</div>
+			</section>
+		</div>
 	</div>
 	<div data-anchor="section4" class="section section-consulting">Some section</div>
 	<div data-anchor="section5" class="section section-contact">Contact Us</div>

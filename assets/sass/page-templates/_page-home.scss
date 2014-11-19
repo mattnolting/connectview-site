@@ -15,6 +15,15 @@
 }
 
 .section.section-whoweserve {
+
+	@include media-query (sm_max) {
+		@include rem('padding', 40px 0);
+	}
+
+	@include media-query (md_max) {
+		@include rem('padding', 40px 0);
+	}
+
 	.block {
 		@include rem('margin-bottom', 12px);
 	}
@@ -28,48 +37,65 @@
 }
 
 .ipad, .iphone, .imac {
-	display: inline-block;
 	position: relative;
 
+	@include media-query (sm) {
+		display: inline-block;
+	}
+
 	.block {
-		position: absolute;
+		@include media-query (sm) {
+			position: absolute;
+		}
 	}
 }
 
 .iphone {
-	background: url("../img/img_iphone.png");
-	width: 231px;
-	height: 433px;
+	@include media-query (sm) {
+		background: url("../img/img_iphone.png");
+		width: 231px;
+		height: 433px;
+	}
 
 	.block {
-		left: 20px;
-		top: 168px;
-		height: 212px;
-		width: 190px;
+		@include media-query (sm) {
+			left: 20px;
+			top: 168px;
+			height: 212px;
+			width: 190px;
+		}
 	}
 }
 
 .ipad {
-	background: url("../img/img_ipad.png");
-	width: 373px;
-	height: 506px;
+	@include media-query (sm) {
+		background: url("../img/img_ipad.png");
+		width: 373px;
+		height: 506px;
+	}
 
 	.block {
-		left: 36px;
-		top: 218px;
-		width: 301px;
+		@include media-query (sm) {
+			left: 36px;
+			top: 218px;
+			width: 301px;
+		}
 	}
 }
 
 .imac {
-	background: url("../img/img_imac.png");
-	width: 467px;
-	height: 403px;
+	@include media-query (sm) {
+		background: url("../img/img_imac.png");
+		width: 467px;
+		height: 403px;
+	}
 
 	.block {
-		left: 19px;
-		bottom: 131px;
-		width: 430px;
+		@include media-query (sm) {
+			left: 19px;
+			bottom: 131px;
+			width: 430px;
+		}
 	}
 }
 
@@ -96,6 +122,7 @@
 		position: absolute;
 		left: 0;
 		top: 0;
+		overflow-x: hidden;
 
 		video {
 			min-height: 100%;

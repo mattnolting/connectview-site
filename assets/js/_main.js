@@ -49,11 +49,11 @@
 				});
 
 				$('.section.section-primary .vidbg').videobackground({
-					videoSource: [['http://localhost:8888/connectview-site/wp-content/themes/roots-sass/assets/video/shoe.mp4', 'video/mp4'],
-						['http://localhost:8888/connectview-site/wp-content/themes/roots-sass/assets/video/shoe.webm', 'video/webm'],
-						['http://localhost:8888/connectview-site/wp-content/themes/roots-sass/assets/video/shoe.ogg', 'video/ogv']],
+					videoSource: [['http://raleighdesignlab.com/connectview-site/wp-content/themes/roots-sass/assets/video/shoe.mp4', 'video/mp4'],
+						['http://raleighdesignlab.com/connectview-site/wp-content/themes/roots-sass/assets/video/shoe.webm', 'video/webm'],
+						['http://raleighdesignlab.com/connectview-site/wp-content/themes/roots-sass/assets/video/shoe.ogg', 'video/ogv']],
 					controlPosition: '',
-					poster: 'http://localhost:8888/connectview-site/wp-content/themes/roots-sass/assets/img/l_connect-view.jpg',
+					poster: 'http://raleighdesignlab.com/connectview-site/wp-content/themes/roots-sass/assets/img/l_connect-view.jpg',
 					loop: true,
 					muted: true,
 
@@ -79,6 +79,15 @@
 				$('#fit2').fitText(0.79);
 				$('#fit3').fitText(1.05);
 				$('#fit4').fitText(0.9);
+
+				$('.flexslider').flexslider({
+					animation: "slide",
+					manualControls: ".flex-control-nav li",
+					directionNav: false,
+					start: function(slider){
+						$('body').removeClass('loading');
+					}
+				});
 			}
 		},
 
