@@ -61,7 +61,9 @@ Template Name: Page - Home
 			<section class="slider">
 				<div class="flexslider">
 					<ul class="slides">
-						<li class="slide1">Slide1</li>
+						<li class="slide1">
+							<img src="<?php echo get_stylesheet_directory_uri() . '/assets//img/g_ipad-lrg.png'; ?>" />
+						</li>
 						<li class="slide2">Slide2</li>
 						<li class="slide3">Slide3</li>
 					</ul>

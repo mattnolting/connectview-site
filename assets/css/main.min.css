@@ -501,9 +501,6 @@ html, body {
     .flexslider .slides > li {
       display: none;
       -webkit-backface-visibility: hidden; }
-    .flexslider .slides img {
-      width: 100%;
-      display: block; }
     .flexslider .slides:after {
       content: ".";
       display: block;
