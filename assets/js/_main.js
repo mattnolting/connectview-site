@@ -29,24 +29,42 @@
 		// Home page
 		home: {
 			init: function() {
+				//$('#section2 .container').slimScroll({
+				//	width: '300px',
+				//	height: '500px',
+				//	size: '10px',
+				//	position: 'left',
+				//	color: '#ffcc00',
+				//	alwaysVisible: true,
+				//	distance: '20px',
+				//	start: $('#child_image_element'),
+				//	railVisible: true,
+				//	railColor: '#222',
+				//	railOpacity: 0.3,
+				//	wheelStep: 10,
+				//	allowPageScroll: false,
+				//	disableFadeOut: false
+				//});
 				$('#fullpage').fullpage({
-					scrollingSpeed: 800,
-					easing: 'easeOutCubic',
-					//slideNavigation: true,
+					fixedElements: '#content-info',
+					//normalScrollElements: '.masthead',
+					scrollingSpeed: 700,
+					//css3: true,
 					menu: '#content-info #footer-menu',
 					anchors:['section1', 'section2', 'section3', 'section4', 'section5'],
-					touchSensitivity: 40,
-					normalScrollElementTouchThreshold: 20,
-					responsive: 1024,
+					//responsive: 1024,
+					responsive: 800,
+					//autoScrolling: false
+					scrollOverflow: true
+					//animateAnchor: true
 					//navigation:true,
 					//navigation: true,
 					//navigationPosition: 'right',
 					//navigationTooltips: ['firstSlide', 'secondSlide'],
 					//slidesNavigation: true,
 					//slidesNavPosition: 'bottom',
-					//continuousVertical:true,
-					easingcss3: 'ease'
 				});
+				//$.fn.fullpage.setScrollingSpeed(1700);
 
 				$('.section.section-primary .vidbg').videobackground({
 					videoSource: [['http://raleighdesignlab.com/connectview-site/wp-content/themes/roots-sass/assets/video/shoe.mp4', 'video/mp4'],
@@ -73,6 +91,8 @@
 					if(docWidth<800) {
 						$('.section.section-primary').videobackground('destroy');
 					}
+
+					//$('.slimScrollDiv .container');
 				});
 
 				$('#fit1').fitText(0.8);
@@ -84,6 +104,7 @@
 					animation: "slide",
 					manualControls: ".flex-control-nav li",
 					directionNav: false,
+					slideshow: false,
 					start: function(slider){
 						$('body').removeClass('loading');
 					}

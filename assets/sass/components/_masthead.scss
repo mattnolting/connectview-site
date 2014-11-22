@@ -1,9 +1,29 @@
 header.masthead {
 	position: absolute;
 	top: 0;
-	@include rem('padding', 12px 42px);
+	z-index: 9999;
 	width: 100%;
+	@include rem('padding', 12px 24px);
 	margin: 0;
 	background: #fff;
-	z-index: 9999;
+
+	@include media-query (sm) {
+		@include rem('padding', 12px 42px);
+	}
+
+	.navbar-logo {
+		@include media-query (xs_max) {
+			width: 60%;
+			float: left;
+		}
+	}
+
+	.connect-logo {
+		float: right;
+
+		@include media-query (xs_max) {
+			width: 30%;
+		}
+	}
 }
+

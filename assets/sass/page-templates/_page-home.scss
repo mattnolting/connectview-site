@@ -5,7 +5,12 @@
 
 		.container {
 			position: relative;
-			z-index: 9999;
+//			z-index: 9999;
+		}
+
+		.container-fluid {
+			position: relative;
+			@include rem('padding-top', 64px);
 		}
 	}
 }
@@ -16,22 +21,19 @@
 
 .section.section-whoweserve {
 
-	@include media-query (sm_max) {
-		@include rem('padding', 40px 0);
-	}
-
-	@include media-query (md_max) {
-		@include rem('padding', 40px 0);
-	}
-
-	.block {
-		@include rem('margin-bottom', 12px);
-	}
+	.block { @include rem('margin-bottom', 12px); }
 
 	.container {
 		text-align: center;
-		@media (min-width: 768px) and (max-width: 1024px) {
-			width: 100%;
+
+		@media (min-width: 768px) and (max-width: 1024px) { width: 100%; }
+
+		@include media-query (sm) { @include rem('padding', 60px 0 60px); }
+	}
+
+	.slimScrollDiv {
+		.container {
+			@include rem('padding', 0 0 60px);
 		}
 	}
 }
@@ -100,7 +102,16 @@
 }
 
 .section.section-solutions {
+	.container-fluid {
 
+		.slider {
+			li {
+				@include media-query (sm) {
+					@include rem('padding', 40px 0 120px);
+				}
+			}
+		}
+	}
 }
 
 .section.section-consulting {
@@ -122,7 +133,7 @@
 		position: absolute;
 		left: 0;
 		top: 0;
-		overflow-x: hidden;
+		overflow: hidden;
 
 		video {
 			min-height: 100%;
@@ -130,4 +141,12 @@
 			//		height: 100%;
 		}
 	}
+}
+
+.block-ipad {
+	width: 771px;
+	height: 520px;
+	max-width: 80%;
+	background-image: url("../img/g_ipad-lrg.png");
+	background-size: 100% auto;
 }

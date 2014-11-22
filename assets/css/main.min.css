@@ -53,6 +53,10 @@ figure.alignnone {
 html {
   font-size: 100%; }
 
+img {
+  max-width: 100%;
+  height: auto; }
+
 .btn {
   background: rgba(255, 255, 255, 0.8);
   text-transform: uppercase;
@@ -114,12 +118,25 @@ p {
 header.masthead {
   position: absolute;
   top: 0;
-  padding: 12px 42px;
-  padding: 0.75rem 2.625rem;
+  z-index: 9999;
   width: 100%;
+  padding: 12px 24px;
+  padding: 0.75rem 1.5rem;
   margin: 0;
-  background: #fff;
-  z-index: 9999; }
+  background: #fff; }
+  @media (min-width: 768px) {
+    header.masthead {
+      padding: 12px 42px;
+      padding: 0.75rem 2.625rem; } }
+  @media (max-width: 480px) {
+    header.masthead .navbar-logo {
+      width: 60%;
+      float: left; } }
+  header.masthead .connect-logo {
+    float: right; }
+    @media (max-width: 480px) {
+      header.masthead .connect-logo {
+        width: 30%; } }
 
 .content-info {
   display: none;
@@ -205,20 +222,27 @@ header.masthead {
   .block.block-blue h1, .block.block-blue h2, .block.block-blue h3, .block.block-blue h4, .block.block-blue h5, .block.block-blue h6 {
     color: #fff; }
 
+@media (min-width: 768px) {
+  .slimScrollDiv .masthead {
+    position: relative; } }
+.slimScrollDiv .container {
+  margin: 20px 0 94px;
+  margin: 1.25rem 0 5.875rem;
+  padding: 20px 0 40px;
+  padding: 1.25rem 0 2.5rem; }
+
+.slimScrollBar, .slimScrollRail {
+  display: none !important; }
+
 .fullpage-wrapper .section {
   overflow: hidden; }
   .fullpage-wrapper .section .container {
+    position: relative; }
+  .fullpage-wrapper .section .container-fluid {
     position: relative;
-    z-index: 9999; }
+    padding-top: 64px;
+    padding-top: 4rem; }
 
-@media (max-width: 768px) {
-  .section.section-whoweserve {
-    padding: 40px 0;
-    padding: 2.5rem 0; } }
-@media (max-width: 992px) {
-  .section.section-whoweserve {
-    padding: 40px 0;
-    padding: 2.5rem 0; } }
 .section.section-whoweserve .block {
   margin-bottom: 12px;
   margin-bottom: 0.75rem; }
@@ -227,6 +251,13 @@ header.masthead {
   @media (min-width: 768px) and (max-width: 1024px) {
     .section.section-whoweserve .container {
       width: 100%; } }
+  @media (min-width: 768px) {
+    .section.section-whoweserve .container {
+      padding: 60px 0 60px;
+      padding: 3.75rem 0 3.75rem; } }
+.section.section-whoweserve .slimScrollDiv .container {
+  padding: 0 0 60px;
+  padding: 0 0 3.75rem; }
 
 .ipad, .iphone, .imac {
   position: relative; }
@@ -271,6 +302,11 @@ header.masthead {
     bottom: 131px;
     width: 430px; } }
 
+@media (min-width: 768px) {
+  .section.section-solutions .container-fluid .slider li {
+    padding: 40px 0 120px;
+    padding: 2.5rem 0 7.5rem; } }
+
 .ui-video-background {
   display: none; }
 
@@ -281,13 +317,20 @@ header.masthead {
     position: absolute;
     left: 0;
     top: 0;
-    overflow-x: hidden; }
+    overflow: hidden; }
     .fp-section .vidbg video {
       min-height: 100%;
       min-width: 100%; }
 
+.block-ipad {
+  width: 771px;
+  height: 520px;
+  max-width: 80%;
+  background-image: url("../img/g_ipad-lrg.png");
+  background-size: 100% auto; }
+
 /**
- * fullPage 2.4.3
+ * fullPage 2.4.6
  * https://github.com/alvarotrigo/fullPage.js
  * MIT licensed
  *
@@ -404,19 +447,19 @@ html, body {
   margin: 0;
   padding: 0; }
 
-#fp-nav li,
-.fp-slidesNav li {
+#fp-nav ul li,
+.fp-slidesNav ul li {
   display: block;
   width: 14px;
   height: 13px;
   margin: 7px;
   position: relative; }
 
-.fp-slidesNav li {
+.fp-slidesNav ul li {
   display: inline-block; }
 
-#fp-nav li a,
-.fp-slidesNav li a {
+#fp-nav ul li a,
+.fp-slidesNav ul li a {
   display: block;
   position: relative;
   z-index: 1;
@@ -425,12 +468,12 @@ html, body {
   cursor: pointer;
   text-decoration: none; }
 
-#fp-nav li .active span,
-.fp-slidesNav .active span {
+#fp-nav ul li a.active span,
+.fp-slidesNav ul li a.active span {
   background: #333; }
 
-#fp-nav span,
-.fp-slidesNav span {
+#fp-nav ul li a span,
+.fp-slidesNav ul li a span {
   top: 2px;
   left: 2px;
   width: 8px;
@@ -441,19 +484,29 @@ html, body {
   position: absolute;
   z-index: 1; }
 
-.fp-tooltip {
+#fp-nav ul li .fp-tooltip {
   position: absolute;
   top: -2px;
   color: #fff;
   font-size: 14px;
   font-family: arial, helvetica, sans-serif;
   white-space: nowrap;
-  max-width: 220px; }
+  max-width: 220px;
+  overflow: hidden;
+  display: block;
+  opacity: 0;
+  width: 0; }
 
-.fp-tooltip.right {
+#fp-nav ul li:hover .fp-tooltip {
+  -webkit-transition: opacity 0.2s ease-in;
+  transition: opacity 0.2s ease-in;
+  width: auto;
+  opacity: 1; }
+
+#fp-nav ul li .fp-tooltip.right {
   right: 20px; }
 
-.fp-tooltip.left {
+#fp-nav ul li .fp-tooltip.left {
   left: 20px; }
 
 /*
@@ -560,7 +613,7 @@ html[xmlns] .slides {
 /* Control Nav */
 .flexslider-controls {
   position: absolute;
-  top: 40px;
+  top: 100px;
   width: 100%;
   text-align: center;
   z-index: 9999; }

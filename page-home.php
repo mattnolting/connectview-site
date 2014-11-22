@@ -6,7 +6,7 @@ Template Name: Page - Home
 
 <div id="fullpage">
 	<div data-anchor="section1" class="section section-primary">
-		<?php get_template_part('templates/header'); ?>
+		<?php get_template_part('templates/header-fixed'); ?>
 		<div class="container">
 			<h1 class="fit-headline">
 				<span class="fittext" id="fit1">Don't invest in</span>
@@ -17,7 +17,8 @@ Template Name: Page - Home
 		</div>
 		<div class="vidbg"></div>
 	</div>
-	<div data-anchor="section2" class="section section-whoweserve">
+	<div id="who-we-serve" data-anchor="section2" class="section section-whoweserve">
+		<?php get_template_part('templates/header'); ?>
 		<div class="container">
 			<div class="iphone">
 				<div class="block block-blue center">
@@ -43,7 +44,8 @@ Template Name: Page - Home
 			</div>
 		</div>
 	</div>
-	<div data-anchor="section3" class="section section-solutions">
+	<div id="section-solutions" data-anchor="section3" class="section section-solutions">
+		<?php get_template_part('templates/header'); ?>
 		<div class="container-fluid">
 			<nav class="flexslider-controls">
 				<ol class="flex-control-nav">
@@ -58,11 +60,13 @@ Template Name: Page - Home
 					</li>
 				</ol>
 			</nav>
-			<section class="slider">
+			<section class="slider center">
 				<div class="flexslider">
 					<ul class="slides">
 						<li class="slide1">
-							<img src="<?php echo get_stylesheet_directory_uri() . '/assets//img/g_ipad-lrg.png'; ?>" />
+							<div class="block-ipad">
+
+							</div>
 						</li>
 						<li class="slide2">Slide2</li>
 						<li class="slide3">Slide3</li>
@@ -71,7 +75,13 @@ Template Name: Page - Home
 			</section>
 		</div>
 	</div>
-	<div data-anchor="section4" class="section section-consulting">Some section</div>
-	<div data-anchor="section5" class="section section-contact">Contact Us</div>
+	<div data-anchor="section4" class="section section-consulting">
+		<?php get_template_part('templates/header'); ?>
+		Some section
+	</div>
+	<div data-anchor="section5" class="section section-contact">
+		<?php get_template_part('templates/header'); ?>
+		Contact Us
+	</div>
 </div>
 
