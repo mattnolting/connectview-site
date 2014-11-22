@@ -1,0 +1,22 @@
+.slimScrollDiv {
+
+	@include media-query (sm) {
+
+	}
+
+	.masthead {
+		@include media-query (sm) {
+			position: relative;
+//			@include box-shadow(0 4px 4px rgba(255,255,255,.3));
+		}
+	}
+
+	.container {
+		@include rem('margin', 20px 0 94px);
+		@include rem('padding', 20px 0 40px);
+	}
+}
+
+.slimScrollBar, .slimScrollRail {
+	display: none !important;
+}
