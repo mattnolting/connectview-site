@@ -18,6 +18,7 @@ module.exports = function(grunt) {
           style: 'nested',
           compass: true,
           require: 'breakpoint',
+          //lineNumbers: true,
           // Source maps are available, but require Sass 3.3.0 to be installed
           // https://github.com/gruntjs/grunt-contrib-sass#sourcemap
           sourcemap: false

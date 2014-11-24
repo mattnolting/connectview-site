@@ -12,7 +12,7 @@
 	}
 
 	.container {
-		@include rem('margin', 20px 0 94px);
+		@include rem('margin', 100px 0 94px);
 		@include rem('padding', 20px 0 40px);
 	}
 }

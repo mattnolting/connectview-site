@@ -1,0 +1,159 @@
+.block-ipad {
+	@extend %clearfix;
+	position: relative;
+
+	width: 300px;
+	height: 202px;
+	margin: 30px auto 30px;
+
+	@include media-query (xs) {
+		width: 400px;
+		height: 269px;
+	}
+
+	@include media-query (sm) {
+		width: 771px;
+		height: 520px;
+		margin: 230px auto 150px;
+		background-image: url("../img/g_ipad-lrg.png");
+		background-size: 100% auto;
+		background-repeat: no-repeat;
+	}
+
+	@include media-query (md) {
+		width: 771px;
+		height: 520px;
+		margin: 230px auto 150px;
+		background-image: url("../img/g_ipad-lrg.png");
+		background-size: 100% auto;
+		background-repeat: no-repeat;
+	}
+
+	.content {
+
+		@include media-query (sm) {
+			position: absolute;
+			left: 76px;
+			top: 28px;
+			width: 618px;
+			height: 462px;
+		}
+
+		.row {
+			height: 50%;
+			margin: 0;
+		}
+
+		.card {
+			position: relative;
+			height: 100%;
+			overflow: hidden;
+
+			.card-content, .card-content-hover {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				@include transition(all 0.3s ease-in-out);
+
+				.contain {
+					@extend %vertical-align;
+				}
+			}
+
+			.card-content {
+				top: 0;
+				left: 0;
+				color: #3b3b3b;
+				background: #fff;
+			}
+
+			.card-content-hover {
+				top: 0;
+				left: -100%;
+				color: #fff;
+				background: #203d76;
+			}
+
+			&:hover {
+				.card-content-hover {
+					left: 0;
+				}
+
+				.card-content {
+					left: 100%;
+				}
+			}
+		}
+	}
+}
+
+.ipad, .iphone, .imac {
+	position: relative;
+
+	@include media-query (sm) { display: inline-block; }
+
+	h2 {
+		margin: 0;
+		@include font-size(27px);
+		font-weight: 100;
+	}
+
+	.block {
+		@include media-query (sm) {
+			position: absolute;
+		}
+	}
+
+	.btn {
+
+	}
+}
+
+.iphone {
+	@include media-query (sm) {
+		background: url("../img/img_iphone.png");
+		width: 231px;
+		height: 433px;
+	}
+
+	.block {
+		@include media-query (sm) {
+			left: 20px;
+			top: 168px;
+			height: 212px;
+			width: 190px;
+		}
+	}
+}
+
+.ipad {
+	@include media-query (sm) {
+		background: url("../img/img_ipad.png");
+		width: 373px;
+		height: 506px;
+	}
+
+	.block {
+		@include media-query (sm) {
+			left: 36px;
+			top: 218px;
+			width: 301px;
+		}
+	}
+}
+
+.imac {
+	@include media-query (sm) {
+		background: url("../img/img_imac.png");
+		width: 467px;
+		height: 403px;
+	}
+
+	.block {
+		@include media-query (sm) {
+			left: 19px;
+			bottom: 131px;
+			width: 430px;
+		}
+	}
+}

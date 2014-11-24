@@ -18,7 +18,7 @@ function roots_scripts() {
   // It's kept in the header instead of footer to avoid conflicts with plugins.
   if (!is_admin() && current_theme_supports('jquery-cdn')) {
 	wp_deregister_script('jquery');
-    wp_register_script('jquery', get_template_directory_uri() . '/assets/js/vendor/jquery-1.11.0.min.js', array(), null, false);
+    wp_register_script('jquery', get_template_directory_uri() . '/assets/js/vendor/jquery-2.1.1.min.js', array(), null, false);
 	add_filter('script_loader_src', 'roots_jquery_local_fallback', 10, 2);
   }
 
@@ -27,16 +27,17 @@ function roots_scripts() {
   }
 
 	wp_enqueue_script('jquery');
+	wp_enqueue_script('respond', get_template_directory_uri() . '/assets/js/vendor/respond.min.js', array(), null, false);
 	wp_enqueue_script('modernizr', get_template_directory_uri() . '/assets/js/vendor/modernizr-2.7.0.min.js', array(), null, false);
-	wp_enqueue_script('jquery-ui', get_template_directory_uri() . '/assets/js/jquery-ui.min.js', array(), null, false);
 	wp_enqueue_script('easing', get_template_directory_uri() . '/assets/js/vendor/jquery.easing.min.js', array(), null, false);
+	wp_enqueue_script('jquery-ui', get_template_directory_uri() . '/assets/js/vendor/jquery-ui.min.js', array(), null, false);
+	wp_enqueue_script('flexslider', get_template_directory_uri() . '/assets/js/vendor/jquery.flexslider-min.js', array(), null, false);
 	wp_enqueue_script('roots_scripts', get_template_directory_uri() . '/assets/js/scripts.min.js', array(), '0fc6af96786d8f267c8686338a34cd38', true);
 	if(is_page_template('page-home.php')) {
 		wp_enqueue_script('slimscroll', get_template_directory_uri() . '/assets/js/vendor/jquery.slimscroll.min.js', array(), null, false);
 		wp_enqueue_script('videobg', get_template_directory_uri() . '/assets/js/vendor/jquery.videobackground.js', array(), null, false);
 		wp_enqueue_script('pagescroll', get_template_directory_uri() . '/assets/js/vendor/jquery.fullPage.min.js', array(), null, false);
 		wp_enqueue_script('fittext', get_template_directory_uri() . '/assets/js/vendor/jquery.fittext.js', array(), null, false);
-		wp_enqueue_script('flexslider', get_template_directory_uri() . '/assets/js/vendor/jquery.flexslider-min.js', array(), null, false);
 	}
 }
 add_action('wp_enqueue_scripts', 'roots_scripts', 100);

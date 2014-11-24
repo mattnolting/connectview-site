@@ -29,86 +29,75 @@
 		// Home page
 		home: {
 			init: function() {
-				//$('#section2 .container').slimScroll({
-				//	width: '300px',
-				//	height: '500px',
-				//	size: '10px',
-				//	position: 'left',
-				//	color: '#ffcc00',
-				//	alwaysVisible: true,
-				//	distance: '20px',
-				//	start: $('#child_image_element'),
-				//	railVisible: true,
-				//	railColor: '#222',
-				//	railOpacity: 0.3,
-				//	wheelStep: 10,
-				//	allowPageScroll: false,
-				//	disableFadeOut: false
-				//});
+				var id;
+				var responsiveWidth     = 800;
+
+				$(window).resize(function() {
+					clearTimeout(id);
+					id = setTimeout(doneResizing, 10);
+				});
+
+				function doneResizing(){
+					var docWidth    = $(window).width(),
+						slider      = $('.flexslider ul li');
+
+					slider.css({width: docWidth});
+
+					if(docWidth<responsiveWidth) {
+						$('body').css({overflow: 'visible'});
+					}
+				}
+
+				$('.flexslider').flexslider({
+					animation: "slide",
+					manualControls: ".flex-control-nav li",
+					directionNav: false,
+					slideshow: false
+					//smoothHeight: true,
+					//responsive: false
+				});
 				$('#fullpage').fullpage({
-					fixedElements: '#content-info',
+					fixedElements: '#content-info, #masthead, .block-ipad',
 					//normalScrollElements: '.masthead',
 					scrollingSpeed: 700,
 					//css3: true,
+					scrollOverflow: true,
 					menu: '#content-info #footer-menu',
 					anchors:['section1', 'section2', 'section3', 'section4', 'section5'],
-					//responsive: 1024,
 					responsive: 800,
-					//autoScrolling: false
-					scrollOverflow: true
-					//animateAnchor: true
-					//navigation:true,
-					//navigation: true,
-					//navigationPosition: 'right',
-					//navigationTooltips: ['firstSlide', 'secondSlide'],
-					//slidesNavigation: true,
-					//slidesNavPosition: 'bottom',
-				});
-				//$.fn.fullpage.setScrollingSpeed(1700);
-
-				$('.section.section-primary .vidbg').videobackground({
-					videoSource: [['http://raleighdesignlab.com/connectview-site/wp-content/themes/roots-sass/assets/video/shoe.mp4', 'video/mp4'],
-						['http://raleighdesignlab.com/connectview-site/wp-content/themes/roots-sass/assets/video/shoe.webm', 'video/webm'],
-						['http://raleighdesignlab.com/connectview-site/wp-content/themes/roots-sass/assets/video/shoe.ogg', 'video/ogv']],
-					controlPosition: '',
-					poster: 'http://raleighdesignlab.com/connectview-site/wp-content/themes/roots-sass/assets/img/l_connect-view.jpg',
-					loop: true,
-					muted: true,
-
-					loadedCallback: function() {
-						$(this).videobackground('mute');
-
-						var docWidth = $(document).width();
-
-						if(docWidth<800) {
-							$(this).videobackground('destroy');
-						}
-					}
+					resize: false
 				});
 
-				$(window).on('resize', function(){
-					var docWidth = $(document).width();
-					if(docWidth<800) {
-						$('.section.section-primary').videobackground('destroy');
-					}
-
-					//$('.slimScrollDiv .container');
-				});
+				//$('.section.section-primary .vidbg').videobackground({
+				//	videoSource: [['http://raleighdesignlab.com/connectview-site/wp-content/themes/roots-sass/assets/video/shoe.mp4', 'video/mp4'],
+				//		['http://raleighdesignlab.com/connectview-site/wp-content/themes/roots-sass/assets/video/shoe.webm', 'video/webm'],
+				//		['http://raleighdesignlab.com/connectview-site/wp-content/themes/roots-sass/assets/video/shoe.ogg', 'video/ogv']],
+				//	controlPosition: '',
+				//	poster: 'http://raleighdesignlab.com/connectview-site/wp-content/themes/roots-sass/assets/img/l_connect-view.jpg',
+				//	loop: true,
+				//	muted: true,
+				//
+				//	loadedCallback: function() {
+				//		$(this).videobackground('mute');
+				//		var docWidth = $(document).width();
+				//		if(docWidth<800) {
+				//			$(this).videobackground('destroy');
+				//		}
+				//	}
+				//});
 
 				$('#fit1').fitText(0.8);
 				$('#fit2').fitText(0.79);
 				$('#fit3').fitText(1.05);
 				$('#fit4').fitText(0.9);
 
-				$('.flexslider').flexslider({
-					animation: "slide",
-					manualControls: ".flex-control-nav li",
-					directionNav: false,
-					slideshow: false,
-					start: function(slider){
-						$('body').removeClass('loading');
+				var video = document.getElementById('video1');
+				function play() {
+					if (video.paused) {
+						video.play();
 					}
-				});
+				}
+				video.play();
 			}
 		},
 

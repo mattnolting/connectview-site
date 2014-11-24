@@ -9,8 +9,14 @@
 }
 
 .fit-headline {
-	@include media-query (sm) {
-		@include rem('margin', 0 20%);
-		text-transform: uppercase;
+	@include rem('margin', 0 5%);
+	text-transform: uppercase;
+
+	@include media-query (xs) { @include rem('margin', 0 10%); }
+	@include media-query (sm) { @include rem('margin', 0 20%); }
+
+	span {
+		vertical-align: top;
+		color: #fff;
 	}
 }

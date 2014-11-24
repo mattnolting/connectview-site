@@ -30,8 +30,8 @@
 }
 
 .slider {
-	height: 100%;
-	background: blue;
+//	height: 100%;
+//	background: blue;
 }
 
 /* FlexSlider Necessary Styles
@@ -43,6 +43,7 @@
 
 	.slides {
 		height: 100%;
+		@extend %clearfix;
 
 		> li {
 			display: none;
@@ -121,8 +122,19 @@ html[xmlns] .slides {display: block;}
 	text-align: center;
 	z-index: 9999;
 
+	@include media-query (sm) {
+		top: 30px;
+	}
+
 	.flex-control-nav {
 		width: 100%;
+
+		.flex-active {
+
+			.btn {
+				background: rgba(255,255,255,1);
+			}
+		}
 
 		li {
 			display: inline-block;
@@ -130,6 +142,10 @@ html[xmlns] .slides {display: block;}
 			&.active {
 				background: rgba(255, 255, 255, 1);
 			}
+		}
+
+		button {
+			@include rem('padding', 8px 40px);
 		}
 	}
 }

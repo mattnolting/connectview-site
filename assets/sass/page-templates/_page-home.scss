@@ -1,23 +1,9 @@
 .fullpage-wrapper {
-
-	.section {
-		overflow: hidden;
-
-		.container {
-			position: relative;
-//			z-index: 9999;
-		}
-
-		.container-fluid {
-			position: relative;
-			@include rem('padding-top', 64px);
-		}
-	}
+	.section { position: relative; }
+	.container, .container-fluid { position: relative; }
 }
 
-.section.section-primary {
-//	background: url("../img/l_connect-view.png");
-}
+.section.section-primary { }
 
 .section.section-whoweserve {
 
@@ -28,88 +14,41 @@
 
 		@media (min-width: 768px) and (max-width: 1024px) { width: 100%; }
 
-		@include media-query (sm) { @include rem('padding', 60px 0 60px); }
+		@include media-query (sm) { @include rem('padding', 120px 15px 60px); }
 	}
 
 	.slimScrollDiv {
+
 		.container {
 			@include rem('padding', 0 0 60px);
 		}
 	}
 }
 
-.ipad, .iphone, .imac {
-	position: relative;
-
-	@include media-query (sm) {
-		display: inline-block;
-	}
-
-	.block {
-		@include media-query (sm) {
-			position: absolute;
-		}
-	}
-}
-
-.iphone {
-	@include media-query (sm) {
-		background: url("../img/img_iphone.png");
-		width: 231px;
-		height: 433px;
-	}
-
-	.block {
-		@include media-query (sm) {
-			left: 20px;
-			top: 168px;
-			height: 212px;
-			width: 190px;
-		}
-	}
-}
-
-.ipad {
-	@include media-query (sm) {
-		background: url("../img/img_ipad.png");
-		width: 373px;
-		height: 506px;
-	}
-
-	.block {
-		@include media-query (sm) {
-			left: 36px;
-			top: 218px;
-			width: 301px;
-		}
-	}
-}
-
-.imac {
-	@include media-query (sm) {
-		background: url("../img/img_imac.png");
-		width: 467px;
-		height: 403px;
-	}
-
-	.block {
-		@include media-query (sm) {
-			left: 19px;
-			bottom: 131px;
-			width: 430px;
-		}
-	}
-}
-
 .section.section-solutions {
+
+	.flexslider-controls {
+
+		@include media-query (sm) {
+			top: 140px;
+			z-index: 99;
+		}
+
+		button {
+			margin-left: 6px;
+			margin-right: 6px;
+
+			@include media-query (sm_max) {
+				margin-top: 12px;
+			}
+		}
+	}
+
 	.container-fluid {
 
 		.slider {
-			li {
-				@include media-query (sm) {
-					@include rem('padding', 40px 0 120px);
-				}
-			}
+
+			li { @extend %clearfix; }
 		}
 	}
 }
@@ -124,29 +63,16 @@
 
 .ui-video-background { display: none; }
 
-.fp-section {
+.vidbg {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
 	overflow: hidden;
 
-
-	.vidbg {
-		width: 100%;
-		position: absolute;
-		left: 0;
-		top: 0;
-		overflow: hidden;
-
-		video {
-			min-height: 100%;
-			min-width:100%;
-			//		height: 100%;
-		}
+	video {
+		min-height: 100%;
+		min-width:100%;
 	}
-}
-
-.block-ipad {
-	width: 771px;
-	height: 520px;
-	max-width: 80%;
-	background-image: url("../img/g_ipad-lrg.png");
-	background-size: 100% auto;
 }

@@ -28,11 +28,12 @@ $bootstrap-sass-asset-helper: false;
 @import "components/content-info"; //footer
 @import "components/nav"; //navigation
 @import "components/fittext";
-////@import "components/sidebar"; //sidebar
-@import "components/content";
-@import "components/slim-scroll";
+//@import "components/sidebar"; //sidebar
 //@import "components/posts";
 //@import "components/primary-content";
+@import "components/content";
+@import "components/slim-scroll";
+@import "components/block-ipad";
 
 
 // Page Templates
