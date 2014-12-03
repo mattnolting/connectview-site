@@ -69,10 +69,6 @@
 			height: 100%;
 			background-size: cover;
 		}
-
-		li.slide1 {
-			background: url("../img/bg_slide1.jpg");
-		}
 	}
 }
 
@@ -105,7 +101,7 @@ html[xmlns] .slides {display: block;}
 }
 
 .loading .flex-viewport { max-height: 300px; }
-.flexslider .slides { zoom: 1; }
+.flexslider .slides { zoom: 1; background: none; }
 .carousel li { margin-right: 5px; }
 
 

@@ -5,6 +5,7 @@
 	width: 300px;
 	height: 202px;
 	margin: 30px auto 30px;
+	z-index: 99;
 
 	@include media-query (xs) {
 		width: 400px;
@@ -55,9 +56,7 @@
 				height: 100%;
 				@include transition(all 0.3s ease-in-out);
 
-				.contain {
-					@extend %vertical-align;
-				}
+				.contain { @extend %vertical-align; }
 			}
 
 			.card-content {
@@ -93,7 +92,9 @@
 	@include media-query (sm) { display: inline-block; }
 
 	h2 {
-		margin: 0;
+		margin: 0 0 12px;
+		padding-bottom: 12px;
+		border-bottom: 1px solid #fff;
 		@include font-size(27px);
 		font-weight: 100;
 	}
@@ -101,11 +102,30 @@
 	.block {
 		@include media-query (sm) {
 			position: absolute;
+			height: 100%;
+		}
+
+		p {
+			@include media-query (sm) {
+				text-align: left;
+			}
 		}
 	}
 
 	.btn {
+		@include rem('padding', 8px 20px);
+		@include font-size(12px);
+		line-height: 1;
+		@include border-radius(2px);
+		text-align: center;
 
+
+		@include media-query (sm) {
+			position: absolute;
+			bottom: 19px;
+			width: 116px;
+			margin-left: -58px;
+		}
 	}
 }
 
@@ -137,6 +157,7 @@
 		@include media-query (sm) {
 			left: 36px;
 			top: 218px;
+			height: 235px;
 			width: 301px;
 		}
 	}
@@ -152,8 +173,9 @@
 	.block {
 		@include media-query (sm) {
 			left: 19px;
-			bottom: 131px;
-			width: 430px;
+			top: 19px;
+			height: 241px;
+			width: 270px;
 		}
 	}
 }

@@ -1,22 +1,24 @@
-.slimScrollDiv {
+@include media-query (sm) {
+	.slimScrollDiv {
 
-	@include media-query (sm) {
-
-	}
-
-	.masthead {
 		@include media-query (sm) {
-			position: relative;
-//			@include box-shadow(0 4px 4px rgba(255,255,255,.3));
+
+		}
+
+		.masthead {
+			@include media-query (sm) {
+				position: relative;
+				//			@include box-shadow(0 4px 4px rgba(255,255,255,.3));
+			}
+		}
+
+		.container {
+			@include rem('margin', 100px 0 94px);
+			@include rem('padding', 20px 0 40px);
 		}
 	}
 
-	.container {
-		@include rem('margin', 100px 0 94px);
-		@include rem('padding', 20px 0 40px);
+	.slimScrollBar, .slimScrollRail {
+		display: none !important;
 	}
-}
-
-.slimScrollBar, .slimScrollRail {
-	display: none !important;
 }
