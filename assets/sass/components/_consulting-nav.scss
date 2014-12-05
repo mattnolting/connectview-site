@@ -1,0 +1,54 @@
+.consulting-nav.flexslider-controls {
+	position: static;
+	margin: 0 auto;
+	font-family: 'museo', sans-serif;
+	text-align: left;
+	text-transform: uppercase;
+
+	@include media-query (sm) { width: 300px; }
+	@include media-query (md) { width: 426px; }
+
+	.title {
+		@include rem('padding', 12px 30px);
+		text-align: left;
+	}
+
+	ol {
+
+		li {
+			width: 100%;
+			@include rem('padding', 12px 30px);
+			background: #999;
+			color: #fff;
+			@include font-size(28px);
+			line-height: 1;
+			text-align: left;
+			@include transform(.2);
+
+			@include media-query (sm) { @include rem('padding', 18px 30px); }
+
+			&:hover, &.flex-active {
+				cursor: pointer;
+				background: #57c233;
+			}
+		}
+
+		li:nth-child(2) {
+			background: #868686;
+
+			&:hover, &.flex-active { background: #4fb32e; }
+		}
+
+		li:nth-child(3) {
+			background: #5e5e5e;
+
+			&:hover, &.flex-active { background: #49a32a; }
+		}
+
+		li:nth-child(4) {
+			background: #454545;
+
+			&:hover, &.flex-active { background: #429426; }
+		}
+	}
+}

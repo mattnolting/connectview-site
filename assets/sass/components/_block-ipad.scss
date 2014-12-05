@@ -1,18 +1,21 @@
+$border-color: #ddd;
+
+// Block iPad Base Styling
+//==================================================================*/
 .block-ipad {
 	@extend %clearfix;
 	position: relative;
-
-	width: 300px;
-	height: 202px;
-	margin: 30px auto 30px;
 	z-index: 99;
 
-	@include media-query (xs) {
+	@include media-query(sm_max) { margin-top: 20px; }
+
+	@include media-query(sm) {
 		width: 400px;
 		height: 269px;
+		margin: 30px auto 30px;
 	}
 
-	@include media-query (sm) {
+	@include media-query(sm) {
 		width: 771px;
 		height: 520px;
 		margin: 230px auto 150px;
@@ -21,7 +24,7 @@
 		background-repeat: no-repeat;
 	}
 
-	@include media-query (md) {
+	@include media-query(md) {
 		width: 771px;
 		height: 520px;
 		margin: 230px auto 150px;
@@ -29,8 +32,14 @@
 		background-size: 100% auto;
 		background-repeat: no-repeat;
 	}
+}
 
+.block-ipad {
+
+	// Content Styling
+	//==================================================================*/
 	.content {
+		@include media-query (sm_max) { margin-bottom: 20px; }
 
 		@include media-query (sm) {
 			position: absolute;
@@ -38,50 +47,93 @@
 			top: 28px;
 			width: 618px;
 			height: 462px;
+			border: 2px solid $border-color;
 		}
 
+		// Row Styling
+		//==================================================================*/
 		.row {
-			height: 50%;
-			margin: 0;
+			@include media-query (xs) {
+				height: 50%;
+				margin: 0;
+			}
+
+			@include media-query (sm_max) { margin: 0; }
 		}
 
+		// Card Front
+		//==================================================================*/
 		.card {
 			position: relative;
-			height: 100%;
 			overflow: hidden;
+			height: 100%;
+			text-align: left;
+			font-family: 'museo', sans-serif;
 
-			.card-content, .card-content-hover {
-				position: absolute;
-				width: 100%;
-				height: 100%;
-				@include transition(all 0.3s ease-in-out);
-
-				.contain { @extend %vertical-align; }
+			@include media-query (sm_max) {
+				width: 80%;
+				height: 240px;
+				left: 10%;
+				margin-bottom: 10px;
 			}
 
-			.card-content {
-				top: 0;
-				left: 0;
-				color: #3b3b3b;
-				background: #fff;
-			}
-
-			.card-content-hover {
-				top: 0;
-				left: -100%;
-				color: #fff;
-				background: #203d76;
-			}
+			@include media-query (sm) { border: 2px solid $border-color; }
 
 			&:hover {
-				.card-content-hover {
-					left: 0;
-				}
-
-				.card-content {
-					left: 100%;
-				}
+				.card-content-hover { left: 0; }
+				.card-content { left: 100%; }
 			}
+		}
+
+
+		// Card Front & Back Shared Styles
+		//==================================================================*/
+		.card-content, .card-content-hover {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			@include transition(all 0.3s ease-in-out);
+		}
+
+
+		// Card Content Front Styling
+		//==================================================================*/
+		.card-content {
+			top: 0;
+			left: 0;
+			padding: 20px;
+			color: #3b3b3b;
+			background: #fff;
+
+			span:first-child { font-weight: 100; }
+
+			.contain {
+				margin: 0 20px;
+				padding: 20px;
+				border: 1px solid #717171;
+				text-transform: uppercase;
+				font-family: 'museo', sans-serif;
+				color: #3b3b3b;
+				@extend %vertical-align;
+
+				p { margin: 0; }
+				p + p { margin-top: 10px; }
+			}
+		}
+
+
+		// Card Back Styling
+		//==================================================================*/
+		.card-content-hover {
+			top: 0;
+			left: -100%;
+			padding: 20px;
+			color: #fff;
+			background: #203d76;
+			@include font-size(16px);
+			line-height: 1;
+
+			@include media-query (sm) { @include rem('padding', 34px); }
 		}
 	}
 }
@@ -105,20 +157,10 @@
 			height: 100%;
 		}
 
-		p {
-			@include media-query (sm) {
-				text-align: left;
-			}
-		}
+		p { @include media-query (sm) { text-align: left; } }
 	}
 
 	.btn {
-		@include rem('padding', 8px 20px);
-		@include font-size(12px);
-		line-height: 1;
-		@include border-radius(2px);
-		text-align: center;
-
 
 		@include media-query (sm) {
 			position: absolute;

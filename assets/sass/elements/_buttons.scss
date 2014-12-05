@@ -12,11 +12,31 @@
 		@include box-shadow(none);
 	}
 
-	&:hover {
-        background: rgba(255, 255, 255, 1);
-	}
+	&:hover { background: rgba(255, 255, 255, 1); }
 
 	&.btn-primary {
 
+	}
+
+	&.btn-small {
+		@include rem('padding', 8px 20px);
+		@include font-size(12px);
+		line-height: 1;
+		@include border-radius(2px);
+		text-align: center;
+	}
+
+	&.btn-blue, &.btn-green {
+		color: #fff;
+	}
+
+	&.btn-blue {
+		background: #203d76;
+		&:hover { background: ligthen(#203d76, 5) }
+	}
+
+	&.btn-green {
+		background: #419f3a;
+		&:hover { background: ligthen(#419f3a, 5) }
 	}
 }

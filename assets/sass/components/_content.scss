@@ -14,3 +14,15 @@
     }
   }
 }
+
+.big {
+	span {
+		width: 100%;
+		display: block;
+	}
+}
+
+.wtext {
+	white-space: nowrap;
+	display: inline-block;
+}

@@ -1,13 +1,22 @@
+// Fullpage Base Styles
+//==================================================================*/
 .fullpage-wrapper {
+
 	.section {
 		position: relative;
 		z-index: 2;
 	}
+
 	.container, .container-fluid { position: relative; }
 }
 
+
+// First Section
+//==================================================================*/
 .section.section-primary {
 	background: black;
+
+	@include media-query (xs_max) { @include rem('margin-bottom', 20px); }
 
 	.container {
 		@include rem('padding-top', 30px);
@@ -18,12 +27,13 @@
 			width: 100%;
 		}
 
-		.section-link {
-			margin: 20px 0;
-		}
+		.section-link { margin: 20px 0; }
 	}
 }
 
+
+// Second Section
+//==================================================================*/
 .section.section-whoweserve {
 
 
@@ -33,23 +43,22 @@
 		text-align: center;
 
 		@media (min-width: 768px) and (max-width: 1200px) { width: 100%; }
-
 		@include media-query (sm) { @include rem('padding', 120px 15px 60px); }
 	}
 
 	.slimScrollDiv {
 
-		.container {
-			@include rem('padding', 0 0 60px);
-		}
+		.container { @include rem('padding', 0 0 60px); }
 	}
 }
 
+
+// Third Section
+//==================================================================*/
 .section.section-solutions {
 	z-index: 1;
+	background-size: cover;
 
-
-	
 	.flexslider-controls {
 		z-index: 99;
 
@@ -61,21 +70,23 @@
 		button {
 			margin-left: 6px;
 			margin-right: 6px;
+			color: #4e5055;
 
-			@include media-query (sm_max) {
-				margin-top: 12px;
-			}
+			@include media-query (sm_max) { margin-top: 12px; }
+
+			&:hover { color: #203d76; }
+		}
+
+		.flex-active button {
+			color: #203d76;
 		}
 	}
 
-	.flexslider {
-		z-index: 9;
-	}
+	.flexslider { z-index: 9; }
 
 	.container-fluid {
 
 		.slider {
-			background-attachment: fixed;
 			background-size: cover;
 
 			li { @extend %clearfix; }
@@ -83,14 +94,18 @@
 	}
 }
 
-.section.section-consulting {
+// Fourth Section
+//==================================================================*/
+.section.section-consulting {  }
 
-}
 
-.section.section-contact {
+// Fifth Section
+//==================================================================*/
+.section.section-contact {  }
 
-}
 
+// Misc Styles
+//==================================================================*/
 .ui-video-background { display: none; }
 
 .vidbg {
