@@ -1,6 +1,6 @@
 header.masthead {
 	position: relative;
-	height: 90px;
+	height: 80px;
 	top: 0;
 	z-index: 9999;
 	width: 100%;
@@ -10,23 +10,64 @@ header.masthead {
 
 	@include media-query (sm) {
 		position: fixed;
-		height: auto;
+		height: 80px;
 		@include rem('padding', 12px 42px);
 	}
 
+	img {
+		max-width: 100%;
+		height: auto;
+	}
+
 	.navbar-logo {
-		@include media-query (xs_max) {
-			width: 60%;
-			float: left;
-		}
+		float: left;
+		width: 215px;
+
+		@include media-query (xs_max) { width: 60%; }
+		@include transition(.2s);
 	}
 
 	.connect-logo {
 		float: right;
+		width: 194px;
+		margin-top: 6px;
 
-		@include media-query (xs_max) {
-			width: 30%;
+		@include media-query (xs_max) { width: 30%; }
+		@include transition(.2s);
+	}
+
+	&.scrolled {
+		height: auto;
+
+		@include media-query (sm) {
+			.navbar-logo {
+				width: 140px;
+				@include transition(.4s);
+			}
+
+			.connect-logo {
+				width: 140px;
+				margin-top: 4px;
+				@include transition(.4s);
+			}
 		}
 	}
 }
 
+.fp-viewing-section2, .fp-viewing-section3, .fp-viewing-section4, .fp-viewing-section5 {
+
+	header.masthead {
+		height: auto;
+
+		.navbar-logo {
+			width: 140px;
+			@include transition(.4s);
+		}
+
+		.connect-logo {
+			width: 140px;
+			margin-top: 4px;
+			@include transition(.4s);
+		}
+	}
+}

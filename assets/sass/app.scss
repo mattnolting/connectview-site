@@ -3,7 +3,7 @@
  */
 
 $bootstrap-sass-asset-helper: false;
-@import "bootstrap/bootstrap";
+//@import "bootstrap/bootstrap";
 @import "compass";
 @import "breakpoint";
 
@@ -20,6 +20,7 @@ $bootstrap-sass-asset-helper: false;
 @import "elements/buttons";
 @import "elements/fonts";
 @import "elements/typography";
+@import "elements/forms";
 
 
 // Components
@@ -35,6 +36,7 @@ $bootstrap-sass-asset-helper: false;
 @import "components/slim-scroll";
 @import "components/block-ipad";
 @import "components/consulting-nav";
+@import "components/social-connections";
 
 
 // Page Templates

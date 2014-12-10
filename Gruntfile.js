@@ -81,27 +81,27 @@ module.exports = function(grunt) {
         ],
         //tasks: ['jshint', 'uglify', 'version']
         tasks: ['jshint', 'uglify']
+      },
+      livereload: {
+        // Browser live reloading
+        // https://github.com/gruntjs/grunt-contrib-watch#live-reloading
+        options: {
+          livereload: false
+        },
+        files: [
+          'assets/css/main.min.css',
+          'assets/js/scripts.min.js',
+          'templates/*.php',
+          '*.php'
+        ]
       }
-      //livereload: {
-      //  // Browser live reloading
-      //  // https://github.com/gruntjs/grunt-contrib-watch#live-reloading
-      //  options: {
-      //    livereload: false
-      //  },
-      //  files: [
-      //    'assets/css/main.min.css',
-      //    'assets/js/scripts.min.js',
-      //    'templates/*.php',
-      //    '*.php'
-      //  ]
-      //}
-    },
-    clean: {
-      dist: [
-        'assets/css/main.min.css',
-        'assets/js/scripts.min.js'
-      ]
     }
+    //clean: {
+    //  dist: [
+    //    'assets/css/main.min.css',
+    //    'assets/js/scripts.min.js'
+    //  ]
+    //}
   });
 
   // Load tasks

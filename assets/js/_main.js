@@ -29,6 +29,16 @@
 		// Home page
 		home: {
 			init: function() {
+				function testHeight() {
+					var docPos = $(window).scrollTop();
+
+					if(docPos>80) {
+						$('#masthead').addClass('scrolled');
+					} else {
+						$('#masthead').removeClass('scrolled');
+					}
+				}
+
 				var id;
 				var responsiveWidth     = 800,
 					docWidth            = $(window).width();
@@ -68,12 +78,11 @@
 							//scrollOverflow: true,
 							menu: '#content-info #footer-menu',
 							anchors: ['section1', 'section2', 'section3', 'section4', 'section5'],
-							responsive: 1200,
-							autoScrolling: false,
+							responsive: 900,
+							//autoScrolling: false,
 							resize: false,
 
 							after: function () {
-
 							},
 
 							afterResize: function () {
@@ -207,5 +216,19 @@
 $(document).ready(UTIL.loadEvents);
 	$(window).load( function() {
 		$( '.card-content .contain span' ).wideText();
+
+		function testHeight() {
+			var docPos = $(window).scrollTop();
+
+			if(docPos>80) {
+				$('#masthead').addClass('scrolled');
+			} else {
+				$('#masthead').removeClass('scrolled');
+			}
+		}
+
+		$(window).scroll(function(){
+			testHeight();
+		});
 	} );
 })(jQuery); // Fully reference jQuery after this point.

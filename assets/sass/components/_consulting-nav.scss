@@ -16,6 +16,7 @@
 	ol {
 
 		li {
+			position: relative;
 			width: 100%;
 			@include rem('padding', 12px 30px);
 			background: #999;
@@ -23,32 +24,79 @@
 			@include font-size(28px);
 			line-height: 1;
 			text-align: left;
-			@include transform(.2);
+			@include transition(.2s);
 
 			@include media-query (sm) { @include rem('padding', 18px 30px); }
 
 			&:hover, &.flex-active {
 				cursor: pointer;
 				background: #57c233;
+
+				@include media-query (md) {
+					&:after { border-left: 104px solid lighten(#57c233, 5); }
+				}
+			}
+
+			@include media-query (md) {
+				&:after {
+					content: '';
+					border-top: 64px solid transparent;
+					border-bottom: 0px solid transparent;
+
+					border-left: 100px solid lighten(#999, 5);
+					position: absolute;
+					left: 100%;
+					top: 81px;
+					@include transform(skew(0deg, 57deg));
+					@include transition(.2s);
+				}
 			}
 		}
+
 
 		li:nth-child(2) {
 			background: #868686;
 
-			&:hover, &.flex-active { background: #4fb32e; }
+			&:hover, &.flex-active { background: #4fb32e;
+				&:after { border-left: 104px solid lighten(#4fb32e, 5); }
+			}
+
+			&:after {
+				border-left: 104px solid lighten(#868686, 5);
+				top: 49px;
+				@include transform(skew(0deg, 43deg));
+			}
 		}
 
 		li:nth-child(3) {
 			background: #5e5e5e;
 
-			&:hover, &.flex-active { background: #49a32a; }
+			&:hover, &.flex-active { background: #49a32a;
+				&:after { border-left: 104px solid lighten(#49a32a, 5); }
+			}
+
+			&:after {
+				border-left: 104px solid lighten(#5e5e5e, 5);
+				top: 16px;
+				@include transform(skew(0deg, 17deg));
+			}
 		}
 
 		li:nth-child(4) {
 			background: #454545;
 
-			&:hover, &.flex-active { background: #429426; }
+			&:hover, &.flex-active {
+				background: #429426;
+				&:after {
+					border-left: 104px solid lighten(#429426, 5);
+				}
+			}
+
+			&:after {
+				border-left: 104px solid lighten(#454545, 5);
+				top: -16px;
+				@include transform(skew(0deg, -17deg));
+			}
 		}
 	}
 }

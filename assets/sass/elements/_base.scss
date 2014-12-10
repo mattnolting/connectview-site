@@ -2,6 +2,8 @@ html { font-size: 100%; font-family: 'museo', sans-serif; }
 
 body {  }
 
+p { font-family: 'museo', sans-serif; }
+
 img {
 	max-width: 100%;
 	height: auto;
@@ -9,3 +11,9 @@ img {
 
 .container {  }
 .wtext { line-height: 1; }
+
+section.section {
+	@include media-query (sm_max) {
+		margin-bottom: 20px;
+	}
+}

@@ -6,9 +6,9 @@ Template Name: Page - Home
 <?php get_template_part('templates/header'); ?>
 
 <div id="fullpage">
-	<div id="pointer" class="pointer">
-		<div id="arrow" class="arrow">test</div>
-	</div>
+<!--	<div id="pointer" class="pointer">-->
+<!--		<div id="arrow" class="arrow">test</div>-->
+<!--	</div>-->
 	<section data-anchor="section1" class="section section-primary">
 		<div class="vidbg">
 			<video class="video" id="video1" loop autoplay="autoplay" preload="true">
@@ -16,6 +16,7 @@ Template Name: Page - Home
 				<source src="<?php echo get_stylesheet_directory_uri() . '/assets/video/stock.ogv'; ?>" type="video/ogg">
 			</video>
 		</div>
+		<div class="overlay"></div>
 
 		<div class="container">
 			<h1 class="fit-headline">
@@ -31,27 +32,49 @@ Template Name: Page - Home
 		</div>
 	</section>
 	<section id="who-we-serve" data-anchor="section2" class="section section-whoweserve">
+		<?php
+			$block1_title    = types_render_field("whoweserve-block1-title", array("raw"=>true));
+			$block1_text    = types_render_field("whoweserve-block1-text", array("raw"=>true));
+			$block1_url    = types_render_field("whoweserve-block1-url", array("raw"=>true));
+
+			$block2_title    = types_render_field("whoweserve-block2-title", array("raw"=>true));
+			$block2_text    = types_render_field("whoweserve-block2-text", array("raw"=>true));
+			$block2_url    = types_render_field("whoweserve-block2-url", array("raw"=>true));
+
+			$block3_title    = types_render_field("whoweserve-block3-title", array("raw"=>true));
+			$block3_text    = types_render_field("whoweserve-block3-text", array("raw"=>true));
+			$block3_url    = types_render_field("whoweserve-block3-url", array("raw"=>true));
+		?>
 		<div class="container">
 			<div class="iphone">
 				<div class="block block-blue">
-					<h2 class="caps">Education</h2>
-					<p>Video and this presence have also made great over.</p>
-					<a href="#" class="btn btn-small">Learn More</a>
+					<h2 class="caps"><?php echo $block1_title; ?></h2>
+					<p><?php echo $block1_text; ?></p>
+
+					<?php if($block1_url) : ?>
+					<a href="<?php echo $block1_url; ?>" class="btn btn-small">Learn More</a>
+					<?php endif; ?>
 				</div>
 
 			</div>
 			<div class="ipad">
 				<div class="block block-blue">
-					<h2 class="caps">Business</h2>
-					<p>Video conferencing and tele presence have also made great over the past.</p>
+					<h2 class="caps"><?php echo $block2_title; ?></h2>
+					<p><?php echo $block2_text; ?></p>
+
+					<?php if($block2_url) : ?>
 					<a href="#" class="btn btn-small">Learn More</a>
+					<?php endif; ?>
 				</div>
 			</div>
 			<div class="imac">
 				<div class="block block-blue">
-					<h2 class="caps">Government</h2>
-					<p>Video conferencing and telepresence have also made great over the past.</p>
-					<a href="#" class="btn btn-small">Learn More</a>
+					<h2 class="caps"><?php echo $block3_title; ?></h2>
+					<p><?php echo $block3_text; ?></p>
+
+					<?php if($block3_url) : ?>
+					<a href="<?php echo $block3_url; ?>" class="btn btn-small">Learn More</a>
+					<?php endif; ?>
 				</div>
 			</div>
 		</div>
@@ -64,6 +87,7 @@ Template Name: Page - Home
 					<?php
 					$field_group_values = simple_fields_fieldgroup("solution");
 					$i = 0;
+
 					if($field_group_values) : foreach($field_group_values as $value) : ?>
 					<li>
 						<button class="btn"><?php echo $field_group_values[$i]['link_title']; ?></button>
@@ -160,8 +184,11 @@ Template Name: Page - Home
 								if($field_group_values) : foreach($field_group_values as $value) : ?>
 									<li class="slide<?php echo $slide; ?>">
 										<img src="<?php echo $field_group_values[$i]['consulting_image']['url']; ?>" alt="" />
-										<h2><?php echo $field_group_values[$i]['consulting_sub_title']; ?></h2>
-										<a class="btn btn-small btn-blue" href="<?php echo $field_group_values[$i]['consulting_button_link']; ?>">Learn More</a>
+										<div class="content">
+											<?php echo $field_group_values[$i]['consulting_content']; ?>
+										</div>
+										<!--										<h2>--><?php //echo $field_group_values[$i]['consulting_sub_title']; ?><!--</h2>-->
+<!--										<a class="btn btn-small btn-blue" href="--><?php //echo $field_group_values[$i]['consulting_button_link']; ?><!--">Learn More</a>-->
 									</li>
 								<?php $i++; $slide++; endforeach; endif; ?>
 							</ul>
@@ -190,18 +217,30 @@ Template Name: Page - Home
 			$contact_image		= types_render_field("contact-image", array("raw"=>true));
 		?>
 
-
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-6">
+				<div class="col-sm-6 col-md-4 col-md-offset-2">
 					<div class="iphone-wrap">
-						<img src="<?php echo get_post_meta($post->ID, 'wpcf-contact-image', true); ?>" alt="Contact Connectview" /></div>
+						<a href="<?php echo get_post_meta($post->ID, 'wpcf-image-link', true); ?>" target="_blank" class="iphone-img" style="background-image: url('<?php echo get_post_meta($post->ID, 'wpcf-contact-image', true); ?>')">
+						</a>
 					</div>
-				<div class="col-sm-6">
+				</div>
+				<div class="col-sm-6 col-md-5 col-lg-6">
+					<div class="form-header">
+						<h3>Start the Conversation <span>Today!</span></h3>
+					</div>
 					<?php echo do_shortcode($contact_form); ?>
+					<div class="form-footer">
+						<address>
+							<?php echo ot_get_option( 'address' ); ?></address>
+						<ul class="social-connections">
+							<li class="social-icon facebook"><a href="<?php echo ot_get_option( 'facebook' ); ?>">Facebook</a></li>
+							<li class="social-icon twitter"><a href="<?php echo ot_get_option( 'twitter' ); ?>">Twitter</a></li>
+							<li class="social-icon linkedin"><a href="<?php echo ot_get_option( 'linkedin' ); ?>">LinkedIn</a></li>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>
-<!--		<img src="--><?php //echo get_template_directory_uri() . '/assets/img/section5.png'; ?><!--" alt="Section 5" />-->
 	</section>
 </div>

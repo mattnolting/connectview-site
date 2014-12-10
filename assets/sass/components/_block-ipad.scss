@@ -18,16 +18,7 @@ $border-color: #ddd;
 	@include media-query(sm) {
 		width: 771px;
 		height: 520px;
-		margin: 230px auto 150px;
-		background-image: url("../img/g_ipad-lrg.png");
-		background-size: 100% auto;
-		background-repeat: no-repeat;
-	}
-
-	@include media-query(md) {
-		width: 771px;
-		height: 520px;
-		margin: 230px auto 150px;
+		margin: 132px auto 20px;
 		background-image: url("../img/g_ipad-lrg.png");
 		background-size: 100% auto;
 		background-repeat: no-repeat;
@@ -39,15 +30,17 @@ $border-color: #ddd;
 	// Content Styling
 	//==================================================================*/
 	.content {
+
 		@include media-query (sm_max) { margin-bottom: 20px; }
 
 		@include media-query (sm) {
 			position: absolute;
-			left: 76px;
-			top: 28px;
-			width: 618px;
-			height: 462px;
+			left: 94px;
+			top: 27px;
+			width: 577px;
+			height: 432px;
 			border: 2px solid $border-color;
+			background: #ddd;
 		}
 
 		// Row Styling
@@ -72,7 +65,7 @@ $border-color: #ddd;
 
 			@include media-query (sm_max) {
 				width: 80%;
-				height: 240px;
+				height: 300px;
 				left: 10%;
 				margin-bottom: 10px;
 			}
@@ -144,20 +137,25 @@ $border-color: #ddd;
 	@include media-query (sm) { display: inline-block; }
 
 	h2 {
-		margin: 0 0 12px;
-		padding-bottom: 12px;
+		margin: 0 0 8px;
+		padding-bottom: 8px;
 		border-bottom: 1px solid #fff;
-		@include font-size(27px);
+		@include font-size(22px);
 		font-weight: 100;
+		line-height: 1;
 	}
+
+	p { @include media-query (sm) { @include font-size(14px); } }
 
 	.block {
 		@include media-query (sm) {
 			position: absolute;
 			height: 100%;
+			@include rem('padding', 12px);
+			text-align: center;
 		}
 
-		p { @include media-query (sm) { text-align: left; } }
+		p { @include media-query (sm) { text-align: center; } }
 	}
 
 	.btn {
@@ -174,16 +172,16 @@ $border-color: #ddd;
 .iphone {
 	@include media-query (sm) {
 		background: url("../img/img_iphone.png");
-		width: 231px;
-		height: 433px;
+		width: 201px;
+		height: 367px;
 	}
 
 	.block {
 		@include media-query (sm) {
-			left: 20px;
-			top: 168px;
-			height: 212px;
-			width: 190px;
+			left: 19px;
+			top: 124px;
+			height: 199px;
+			width: 161px;
 		}
 	}
 }
@@ -191,16 +189,16 @@ $border-color: #ddd;
 .ipad {
 	@include media-query (sm) {
 		background: url("../img/img_ipad.png");
-		width: 373px;
-		height: 506px;
+		width: 308px;
+		height: 410px;
 	}
 
 	.block {
 		@include media-query (sm) {
-			left: 36px;
-			top: 218px;
-			height: 235px;
-			width: 301px;
+			left: 30px;
+			top: 179px;
+			height: 193px;
+			width: 247px;
 		}
 	}
 }
@@ -208,16 +206,16 @@ $border-color: #ddd;
 .imac {
 	@include media-query (sm) {
 		background: url("../img/img_imac.png");
-		width: 467px;
-		height: 403px;
+		width: 384px;
+		height: 326px;
 	}
 
 	.block {
 		@include media-query (sm) {
-			left: 19px;
-			top: 19px;
-			height: 241px;
-			width: 270px;
+			left: 15px;
+			top: 16px;
+			height: 198px;
+			width: 211px;
 		}
 	}
 }
