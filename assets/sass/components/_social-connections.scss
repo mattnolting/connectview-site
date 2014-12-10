@@ -1,0 +1,24 @@
+.social-connections {
+	position: relative;
+	text-align: center;
+	padding: 0;
+
+	.social-icon {
+		width: 29px;
+		height: 29px;
+		display: inline-block;
+		text-indent: -9999em;
+	}
+
+	a {
+		width: 100%;
+		height: 100%;
+		display: block;
+	}
+
+	li {
+		&.facebook { background-image: url('../img/i_facebook.jpg'); }
+		&.twitter { background-image: url('../img/i_twitter.jpg'); }
+		&.linkedin { background-image: url('../img/i_linkedin.jpg'); }
+	}
+}
