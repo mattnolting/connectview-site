@@ -29,6 +29,22 @@
 		// Home page
 		home: {
 			init: function() {
+
+				// Force video to fill first screen
+				//==================================================================*/
+				$('.vidbg video').css({ 'min-width': '100%', 'min-height': '100%'});
+
+
+				$('#section-primary').flexslider({
+					animation: "fade",
+					easing: 'swing',
+					directionNav: false,
+					controlNav: false,
+					animationSpeed: 700
+				});
+
+				// Function to test top position on scroll and add/remove fixed on masthead
+				//==================================================================*/
 				function testHeight() {
 					var docPos = $(window).scrollTop();
 
@@ -39,46 +55,58 @@
 					}
 				}
 
+				// Set variable
+				//==================================================================*/
 				var id;
 				var responsiveWidth     = 800,
 					docWidth            = $(window).width();
 
+
+				// On resize functions
+				//==================================================================*/
 				$(window).resize(function() {
 					clearTimeout(id);
 					id = setTimeout(doneResizing, 10);
 				});
 
+
+				// Viewport resize
+				//==================================================================*/
 				function doneResizing(){
 					var docWidth    = $(window).width(),
 						slider      = $('#section-solutions .flexslider ul li');
 
+					// Force flexslider li's to 100% width
 					slider.css({width: docWidth});
 
-					if(docWidth<responsiveWidth) {
-						$('.vidbg').remove();
-					}
+					// Remove elements on mobile
+					if(docWidth<responsiveWidth) { $('.vidbg').remove(); }
 
+					// Remove elements on desktop
+					//if(docWidth<responsiveWidth) { $('.vidbg').remove(); }
+
+					// Force video to 100% width
 					$('.vidbg video').css({ 'min-width': '100%', 'min-height': '100%'});
 				}
 
-				if(docWidth<responsiveWidth) {
-					$('.vidbg').remove();
-				}
 
+				// Initialize Fullpage
+				//==================================================================*/
 				function fullPageInit() {
 					var isPhoneDevice = "ontouchstart" in document.documentElement;
 					if (isPhoneDevice || docWidth<responsiveWidth) {
-						//alert('test');
+
 					} else {
 
 						$('#fullpage').fullpage({
-							//fixedElements: '#content-info, #masthead',
+							fixedElements: '#content-info',
+							//fixedElements: '#masthead',
 							css3: true,
 							scrollingSpeed: 700,
 							//scrollOverflow: true,
 							menu: '#content-info #footer-menu',
-							anchors: ['section1', 'section2', 'section3', 'section4', 'section5'],
-							responsive: 900,
+							anchors: ['choose-connectview', 'who-we-serve', 'solutions', 'process', 'contact'],
+							responsive: 1200,
 							//autoScrolling: false,
 							resize: false,
 
@@ -101,11 +129,6 @@
 
 				fullPageInit();
 
-				//$(window).resize(function() {
-				//	if ($(window).width() < 800) {
-				//		//$('#fullpage > .section').css({height: ''});
-				//	}
-				//});
 
 				$('#solutions-slider').flexslider({
 					animation: "slide",
@@ -121,6 +144,8 @@
 							currentBg           = $(slider.slides[animateTo]).attr('data-background');
 
 						$(bgContainer).css({ 'background-image': "url(" + currentBg + ")"});
+						$('.fit-headline span' ).wideText();
+						$('.fit-headline').animate({ 'opacity' : 1 });
 					},
 
 					before: function(slider){
@@ -141,47 +166,108 @@
 
 				$('#consulting-slider').flexslider({
 					animation: "fade",
-					//easing: 'swing',
+					easing: 'swing',
+					animationSpeed: 400,
 					manualControls: "#consulting-nav li",
-					directionNav: false,
-					slideshow: false
+					directionNav: false
 				});
 
-				$('#fit1').fitText(0.8);
-				$('#fit2').fitText(0.79);
-				$('#fit3').fitText(1.05);
-				$('#fit4').fitText(0.9);
-
 				var video = document.getElementById('video1');
+
 				function play() {
 					if (video.paused) {
 						video.play();
 					}
 				}
 
-				if(video) {
-					video.play();
+				if(video) { video.play(); }
+
+
+				var contactVid = document.getElementById("contact-vid");
+
+				$('#btn-contact').click(function(){
+
+					if (contactVid.paused) {
+						contactVid.play();
+						$('i').fadeOut();
+					}
+					else {
+						contactVid.pause();
+						$('i').fadeIn();
+					}
+				});
+
+				// Device testing
+				//==================================================================*/
+				if( $('body').hasClass('no-touch') ) {
 				}
 
-				var img = $('#arrow');
+				if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+					$('#imac-btn, #ipad-btn, #iphone-btn').attr("href", "#section-solutions");
+					$('#vid-link').attr("href", "#section-who-we-serve");
+					$('#home-link').attr("href", "#section-primary");
+					$('#end-link').attr("href", "#section-content");
+					$('#primary-link1').attr("href", "#section-primary");
+					$('#primary-link2').attr("href", "#section-who-we-serve");
+					$('#primary-link3').attr("href", "#section-solutions");
+					$('#primary-link4').attr("href", "#section-process");
+					$('#primary-link5').attr("href", "#section-contact");
+					$('.section-container').css({'padding-bottom': 60 });
 
-				function mouse(evt) {
-					var center_x = (offset.left) + (img.width() / 2);
-					var center_y = (offset.top) + (img.height() / 2);
-					var mouse_x = evt.pageX;
-					var mouse_y = evt.pageY;
-					var radians = Math.atan2(mouse_x - center_x, mouse_y - center_y);
-					var degree = (radians * (180 / Math.PI) * -1) + 90;
-					img.css('-moz-transform', 'rotate(' + degree + 'deg)');
-					img.css('-webkit-transform', 'rotate(' + degree + 'deg)');
-					img.css('-o-transform', 'rotate(' + degree + 'deg)');
-					img.css('-ms-transform', 'rotate(' + degree + 'deg)');
+					$("#btn-contact").remove();
+
+					//$('.card-content').cl
+
+					// Touch events
+					//==================================================================*/
+					$('.card-content').on({ 'touchend' : function(){
+						$('.card-content').not(this).parent().removeClass('mobile-active');
+						$(this).parent().addClass('mobile-active');
+					}});
+
+					$('#solutions-nav').on({ 'touchend' : function(){
+						$('.card-content').not(this).parent().removeClass('mobile-active');
+					}});
+
+					$('.mobile-active .card-content-hover').on({ 'touchend' : function(){
+						var dataTarget = $(this).attr('data-link');
+						console.log(dataTarget);
+						$('.long-info-content').addClass('active');
+						$('#' + dataTarget + '').show();
+					}});
+
+					$('.long-info-content .close').on({ 'touchmove' : function(){
+						$('.long-info-content').removeClass('active');
+						$('.long-info').hide();
+					}});
+
+					$( window ).on( "orientationchange", function( event ) {
+						var slider = $('#section-solutions .flexslider ul li');
+						var docWidth            = $(window).width();
+
+						// Force flexslider li's to 100% width
+						slider.css({width: docWidth});
+					});
 				}
 
-				if (img.length > 0) {
-					var offset = img.offset();
-					$(document).mousemove(mouse);
-				}
+				$(contactVid).click(function(){
+
+					if (contactVid.paused) {
+						contactVid.play();
+						$('i').fadeOut();
+					}
+					else {
+						contactVid.pause();
+						$('i').fadeIn();
+					}
+				});
+
+
+				$(contactVid).bind("ended", function() {
+					$('i').fadeIn();
+					this.currentTime = 0;
+					//this.pause();
+				});
 			}
 		},
 
@@ -215,20 +301,60 @@
 
 $(document).ready(UTIL.loadEvents);
 	$(window).load( function() {
-		$( '.card-content .contain span' ).wideText();
+		$('.card-content .contain span').wideText();
 
-		function testHeight() {
+		function testYPos() {
 			var docPos = $(window).scrollTop();
 
 			if(docPos>80) {
-				$('#masthead').addClass('scrolled');
+				if(!$('#masthead').hasClass('scrolled')) {
+					$('#masthead').addClass('scrolled');
+				}
 			} else {
-				$('#masthead').removeClass('scrolled');
+				if($('#masthead').hasClass('scrolled')) {
+					$('#masthead').removeClass('scrolled');
+				}
 			}
 		}
 
 		$(window).scroll(function(){
-			testHeight();
+			testYPos();
 		});
-	} );
+
+		function showLongInfo() {
+			var scope  = $('#section-solutions');
+			$('.card-content-hover').click(function(){
+				var dataTarget = $(this).attr('data-link');
+				$('.long-info-content').addClass('active');
+				$('#' + dataTarget + '').show();
+			});
+
+			$('.long-info-content .close').click(function(){
+				$('.long-info-content').removeClass('active');
+				$('#block-ipad .long-info').hide();
+			});
+
+			$(document).keyup(function(e) {
+				if (e.keyCode === 27) {
+					$('.long-info-content').removeClass('active');
+					$('#block-ipad .long-info').hide();
+				}
+			});
+		}
+
+		showLongInfo();
+
+		//var exampleSlider = $('#slider').data('flexslider');
+		$('#iphone-btn').click(function(){
+			$('#solutions-slider').flexslider(0);
+		});
+
+		$('#ipad-btn').click(function(){
+			$('#solutions-slider').flexslider(1);
+		});
+
+		$('#imac-btn').click(function(){
+			$('#solutions-slider').flexslider(2);
+		});
+	});
 })(jQuery); // Fully reference jQuery after this point.

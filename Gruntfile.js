@@ -18,7 +18,7 @@ module.exports = function(grunt) {
           style: 'nested',
           compass: true,
           require: 'breakpoint',
-          //lineNumbers: true,
+          lineNumbers: true,
           // Source maps are available, but require Sass 3.3.0 to be installed
           // https://github.com/gruntjs/grunt-contrib-sass#sourcemap
           sourcemap: false
@@ -82,26 +82,26 @@ module.exports = function(grunt) {
         //tasks: ['jshint', 'uglify', 'version']
         tasks: ['jshint', 'uglify']
       },
-      livereload: {
-        // Browser live reloading
-        // https://github.com/gruntjs/grunt-contrib-watch#live-reloading
-        options: {
-          livereload: false
-        },
-        files: [
-          'assets/css/main.min.css',
-          'assets/js/scripts.min.js',
-          'templates/*.php',
-          '*.php'
-        ]
-      }
+      //livereload: {
+      //  // Browser live reloading
+      //  // https://github.com/gruntjs/grunt-contrib-watch#live-reloading
+      //  options: {
+      //    livereload: false
+      //  },
+      //  files: [
+      //    'assets/css/main.min.css',
+      //    'assets/js/scripts.min.js',
+      //    'templates/*.php',
+      //    '*.php'
+      //  ]
+      //}
+    },
+    clean: {
+      dist: [
+        'assets/css/main.min.css',
+        'assets/js/scripts.min.js'
+      ]
     }
-    //clean: {
-    //  dist: [
-    //    'assets/css/main.min.css',
-    //    'assets/js/scripts.min.js'
-    //  ]
-    //}
   });
 
   // Load tasks

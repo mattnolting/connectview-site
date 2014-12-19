@@ -28,15 +28,13 @@ $bootstrap-sass-asset-helper: false;
 @import "components/masthead"; //masthead
 @import "components/content-info"; //footer
 @import "components/nav"; //navigation
-@import "components/fittext";
-//@import "components/sidebar"; //sidebar
-//@import "components/posts";
-//@import "components/primary-content";
+@import "components/autotext";
 @import "components/content";
 @import "components/slim-scroll";
 @import "components/block-ipad";
 @import "components/consulting-nav";
 @import "components/social-connections";
+@import "components/iphone-ipad-imac";
 
 
 // Page Templates

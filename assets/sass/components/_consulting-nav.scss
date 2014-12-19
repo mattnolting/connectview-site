@@ -6,14 +6,36 @@
 	text-transform: uppercase;
 
 	@include media-query (sm) { width: 300px; }
-	@include media-query (md) { width: 426px; }
+	@include media-query (md) {
+		width: 426px;
+		float: left;
+	}
 
 	.title {
 		@include rem('padding', 12px 30px);
 		text-align: left;
 	}
 
+	.shadow {
+		display: none;
+		position: absolute;
+		left: 0;
+		bottom: -40px;
+		width: 540px;
+		height: 142px;
+		z-index: 1;
+		background-image: url("../img/bg_process-shadow.jpg");
+		background-size: 100% auto;
+		background-position: left bottom;
+
+		@include media-query (md) {
+			display: block;
+		}
+	}
+
 	ol {
+		position: relative;
+		z-index: 99;
 
 		li {
 			position: relative;
@@ -24,7 +46,7 @@
 			@include font-size(28px);
 			line-height: 1;
 			text-align: left;
-			@include transition(.2s);
+			@include transition(.1s);
 
 			@include media-query (sm) { @include rem('padding', 18px 30px); }
 

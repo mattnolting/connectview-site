@@ -6,9 +6,12 @@ header.masthead {
 	width: 100%;
 	@include rem('padding', 12px 24px);
 	margin: 0;
-	background: rgba(255,255,255,.8);
+	background: rgba(255,255,255,.9);
+	@include transition(.2s);
 
-	@include media-query (sm) {
+	@include media-query (sm) { position: fixed; }
+
+	@include media-query (md) {
 		position: fixed;
 		height: 80px;
 		@include rem('padding', 12px 42px);
@@ -37,18 +40,21 @@ header.masthead {
 	}
 
 	&.scrolled {
-		height: auto;
-
 		@include media-query (sm) {
-			.navbar-logo {
-				width: 140px;
-				@include transition(.4s);
-			}
+			height: 52px;
+			@include rem('padding', 8px 42px);
 
-			.connect-logo {
-				width: 140px;
-				margin-top: 4px;
-				@include transition(.4s);
+			@include media-query (sm) {
+				.navbar-logo {
+					width: 140px;
+					@include transition(.2s);
+				}
+
+				.connect-logo {
+					width: 140px;
+					margin-top: 4px;
+					@include transition(.2s);
+				}
 			}
 		}
 	}
@@ -56,18 +62,21 @@ header.masthead {
 
 .fp-viewing-section2, .fp-viewing-section3, .fp-viewing-section4, .fp-viewing-section5 {
 
-	header.masthead {
-		height: auto;
+	@include media-query (md) {
+		header.masthead {
+			height: 52px;
+			@include rem('padding', 8px 42px);
 
-		.navbar-logo {
-			width: 140px;
-			@include transition(.4s);
-		}
+			.navbar-logo {
+				width: 140px;
+				@include transition(.2s);
+			}
 
-		.connect-logo {
-			width: 140px;
-			margin-top: 4px;
-			@include transition(.4s);
+			.connect-logo {
+				width: 140px;
+				margin-top: 4px;
+				@include transition(.2s);
+			}
 		}
 	}
 }

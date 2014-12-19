@@ -12,7 +12,7 @@
  */
 function roots_scripts() {
   wp_enqueue_style('roots_main', get_template_directory_uri() . '/assets/css/main.min.css', false, '111e1281c01bc18e932ce892a44244b4');
-
+  wp_enqueue_style('font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css', false);
   // jQuery is loaded using the same method from HTML5 Boilerplate:
   // Grab Google CDN's latest jQuery with a protocol relative URL; fallback to local if offline
   // It's kept in the header instead of footer to avoid conflicts with plugins.
@@ -33,13 +33,14 @@ function roots_scripts() {
 	wp_enqueue_script('jquery-ui', get_template_directory_uri() . '/assets/js/vendor/jquery-ui.min.js', array(), null, false);
 	wp_enqueue_script('flexslider', get_template_directory_uri() . '/assets/js/vendor/jquery.flexslider-min.js', array(), null, false);
 	wp_enqueue_script('roots_scripts', get_template_directory_uri() . '/assets/js/scripts.min.js', array(), '0fc6af96786d8f267c8686338a34cd38', true);
+//	wp_enqueue_script('roots_scripts', get_template_directory_uri() . '/assets/js/_main.js', array(), null, true);
 
 	if(is_page_template('page-home.php')) {
-//		wp_enqueue_script('slimscroll', get_template_directory_uri() . '/assets/js/vendor/jquery.slimscroll.min.js', array(), null, false);
+		wp_enqueue_script('slimscroll', get_template_directory_uri() . '/assets/js/vendor/jquery.slimscroll.min.js', array(), null, false);
 		wp_enqueue_script('videobg', get_template_directory_uri() . '/assets/js/vendor/jquery.videobackground.js', array(), null, false);
 		wp_enqueue_script('pagescroll', get_template_directory_uri() . '/assets/js/vendor/jquery.fullPage.min.js', array(), null, false);
-		wp_enqueue_script('fittext', get_template_directory_uri() . '/assets/js/vendor/jquery.fittext.js', array(), null, false);
 		wp_enqueue_script('autofit', get_template_directory_uri() . '/assets/js/vendor/jquery.autoFit.js', array(), null, false);
+		wp_enqueue_script('smoothscroll', get_template_directory_uri() . '/assets/js/vendor/jquery.smoothScroll.js', array(), null, false);
 	}
 }
 add_action('wp_enqueue_scripts', 'roots_scripts', 100);

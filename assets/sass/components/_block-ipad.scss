@@ -72,10 +72,10 @@ $border-color: #ddd;
 
 			@include media-query (sm) { border: 2px solid $border-color; }
 
-			&:hover {
-				.card-content-hover { left: 0; }
-				.card-content { left: 100%; }
-			}
+//			&:hover {
+//				.card-content-hover { left: 0; }
+//				.card-content { left: 100%; }
+//			}
 		}
 
 
@@ -127,95 +127,140 @@ $border-color: #ddd;
 			line-height: 1;
 
 			@include media-query (sm) { @include rem('padding', 34px); }
+
+			&:hover { cursor: pointer; }
+		}
+
+		.mobile-active {
+			.card-content-hover {
+				left: 0;
+				@include transition(.2s);
+			}
 		}
 	}
 }
 
-.ipad, .iphone, .imac {
-	position: relative;
+.block-ipad {
 
-	@include media-query (sm) { display: inline-block; }
+	.long-info-content {
+		position: absolute;
+		top: 0;
+		width: 0;
+		height: 0;
+		background: #203D76;
+		overflow: scroll;
+		@include transition(.4s);
+		z-index: 1;
 
-	h2 {
-		margin: 0 0 8px;
-		padding-bottom: 8px;
-		border-bottom: 1px solid #fff;
-		@include font-size(22px);
-		font-weight: 100;
-		line-height: 1;
-	}
+		@include media-query (md) {
+			left: 94px;
+			top: 27px;
+		}
 
-	p { @include media-query (sm) { @include font-size(14px); } }
+		&.active {
+			display: block;
+			width: 80%;
+			height: 500px;
+			left: 10%;
+			z-index: 99;
+			border: 2px solid $border-color;
 
-	.block {
-		@include media-query (sm) {
+			@include media-query (md) {
+				width: 594px;
+				height: 432px;
+			}
+		}
+
+		.close {
 			position: absolute;
-			height: 100%;
-			@include rem('padding', 12px);
-			text-align: center;
+			top: 20px;
+			right: 20px;
+			width: 28px;
+			height: 28px;
+			background: url("../img/i_x.png");
 		}
-
-		p { @include media-query (sm) { text-align: center; } }
 	}
 
-	.btn {
+	.long-info {
+		display: none;
+		@include rem('padding', 0 40px);
+		color: #fff;
+		text-align: left;
+		display: table;
+		height: 100%;
 
-		@include media-query (sm) {
+		.long-content {
+			display: table-cell;
+			vertical-align: middle;
+		}
+	}
+}
+
+.no-touch .block-ipad {
+
+	// Content Styling
+	//==================================================================*/
+	.content {
+
+		// Card Front
+		//==================================================================*/
+		.card {
+
+			&:hover {
+				.card-content-hover {
+					left: 0;
+				}
+				.card-content {
+					left: 100%;
+				}
+			}
+		}
+	}
+
+	.long-info-content {
+		position: absolute;
+		left: 94px;
+		top: 27px;
+		width: 0;
+		height: 0;
+		overflow: hidden;
+		@include transition(.4s);
+		z-index: 1;
+
+		&.active {
+
+			@include media-query (sm) {
+				display: block;
+				width: 577px;
+				height: 432px;
+				background: #203D76;
+				z-index: 99;
+				border: 2px solid $border-color;
+			}
+		}
+
+		.close {
 			position: absolute;
-			bottom: 19px;
-			width: 116px;
-			margin-left: -58px;
+			top: 20px;
+			right: 20px;
+			width: 28px;
+			height: 28px;
+			background: url("../img/i_x.png");
+		}
+	}
+
+	.long-info {
+		display: none;
+		@include rem('padding', 0 40px);
+		color: #fff;
+		text-align: left;
+		display: table;
+		height: 100%;
+
+		.long-content {
+			display: table-cell;
+			vertical-align: middle;
 		}
 	}
 }
 
-.iphone {
-	@include media-query (sm) {
-		background: url("../img/img_iphone.png");
-		width: 201px;
-		height: 367px;
-	}
-
-	.block {
-		@include media-query (sm) {
-			left: 19px;
-			top: 124px;
-			height: 199px;
-			width: 161px;
-		}
-	}
-}
-
-.ipad {
-	@include media-query (sm) {
-		background: url("../img/img_ipad.png");
-		width: 308px;
-		height: 410px;
-	}
-
-	.block {
-		@include media-query (sm) {
-			left: 30px;
-			top: 179px;
-			height: 193px;
-			width: 247px;
-		}
-	}
-}
-
-.imac {
-	@include media-query (sm) {
-		background: url("../img/img_imac.png");
-		width: 384px;
-		height: 326px;
-	}
-
-	.block {
-		@include media-query (sm) {
-			left: 15px;
-			top: 16px;
-			height: 198px;
-			width: 211px;
-		}
-	}
-}

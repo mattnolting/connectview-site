@@ -1,20 +1,20 @@
 <footer id="content-info" class="content-info" role="contentinfo">
 	<nav class="nav-main" role="navigation">
 		<ul id="footer-menu">
-			<li data-menuanchor="section1" class="hidden">
-				<a href="#section1">Top</a>
+			<li data-menuanchor="choose-connectview" class="hidden">
+				<a id="primary-link1" href="#choose-connectview">Top</a>
 			</li>
-			<li data-menuanchor="section2">
-				<a href="#section2">Who We Serve</a>
+			<li data-menuanchor="who-we-serve">
+				<a id="primary-link2" href="#who-we-serve">Who We Serve</a>
 			</li>
-			<li data-menuanchor="section3">
-				<a href="#section3">Solutions</a>
+			<li data-menuanchor="solutions">
+				<a id="primary-link3" href="#solutions">Solutions</a>
 			</li>
-			<li data-menuanchor="section4">
-				<a href="#section4">Consulting</a>
+			<li data-menuanchor="process">
+				<a id="primary-link4" href="#process">Consulting</a>
 			</li>
-			<li data-menuanchor="section5">
-				<a href="#section5">Contact</a>
+			<li data-menuanchor="contact">
+				<a id="primary-link5" href="#contact">Contact</a>
 			</li>
 		</ul>
 	</nav>

@@ -1,0 +1,88 @@
+.ipad, .iphone, .imac {
+	position: relative;
+
+	@include media-query (sm) { display: inline-block; }
+
+	h2 {
+		margin: 0 0 8px;
+		padding-bottom: 8px;
+		border-bottom: 1px solid #fff;
+		@include font-size(22px);
+		font-weight: 100;
+		line-height: 1;
+	}
+
+	p { @include media-query (sm) { @include font-size(14px); } }
+
+	.block {
+		@include media-query (sm) {
+			position: absolute;
+			height: 100%;
+			@include rem('padding', 12px);
+			text-align: center;
+		}
+
+		p { @include media-query (sm) { text-align: center; } }
+	}
+
+	.btn {
+
+		@include media-query (sm) {
+			position: absolute;
+			bottom: 19px;
+			width: 116px;
+			margin-left: -58px;
+		}
+	}
+}
+
+.iphone {
+	@include media-query (sm) {
+		background: url("../img/img_iphone.png");
+		width: 201px;
+		height: 367px;
+	}
+
+	.block {
+		@include media-query (sm) {
+			left: 19px;
+			top: 124px;
+			height: 199px;
+			width: 161px;
+		}
+	}
+}
+
+.ipad {
+	@include media-query (sm) {
+		background: url("../img/img_ipad.png");
+		width: 308px;
+		height: 410px;
+	}
+
+	.block {
+		@include media-query (sm) {
+			left: 30px;
+			top: 179px;
+			height: 193px;
+			width: 247px;
+		}
+	}
+}
+
+.imac {
+	@include media-query (sm) {
+		background: url("../img/img_imac.png");
+		width: 384px;
+		height: 326px;
+	}
+
+	.block {
+		@include media-query (sm) {
+			left: 15px;
+			top: 16px;
+			height: 198px;
+			width: 211px;
+		}
+	}
+}
