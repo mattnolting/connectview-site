@@ -129,10 +129,17 @@ html[xmlns] .slides {display: block;}
 
 		li {
 			display: inline-block;
+			width: 100%;
+			margin-bottom: 8px;
+
+			@include media-query (sm) {
+				width: auto;
+				margin-bottom: 0;
+			}
 
 			@include media-query (sm_max) {
-				width: 100%;
-				margin-top: 8px;
+//				width: 100%;
+//				margin-top: 8px;
 			}
 
 			@include media-query (xs_max) {
@@ -141,15 +148,6 @@ html[xmlns] .slides {display: block;}
 
 			&.active {
 				background: rgba(255, 255, 255, 1);
-			}
-		}
-
-		button {
-			@include rem('padding', 8px 40px);
-
-			@include media-query (sm_max) {
-				width: 80%;
-				margin: 0 0 0 10% !important;
 			}
 		}
 	}

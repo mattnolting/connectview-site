@@ -32,7 +32,14 @@
 
 				// Force video to fill first screen
 				//==================================================================*/
+				if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+					//$('#vid-link').attr("href", "#section-who-we-serve");
+					//$("#btn-contact, #vid-bg, .overlay").remove();
+					//alert('device');
+				}
+
 				$('.vidbg video').css({ 'min-width': '100%', 'min-height': '100%'});
+				
 
 
 				$('#section-primary').flexslider({
@@ -58,7 +65,7 @@
 				// Set variable
 				//==================================================================*/
 				var id;
-				var responsiveWidth     = 800,
+				var responsiveWidth     = 768,
 					docWidth            = $(window).width();
 
 
@@ -80,10 +87,15 @@
 					slider.css({width: docWidth});
 
 					// Remove elements on mobile
-					if(docWidth<responsiveWidth) { $('.vidbg').remove(); }
+					if(docWidth<responsiveWidth) {
+						$('.vidbg').remove();
+					}
 
 					// Remove elements on desktop
-					//if(docWidth<responsiveWidth) { $('.vidbg').remove(); }
+					if(docWidth<responsiveWidth) {
+						$('#imac-btn, #ipad-btn, #iphone-btn').attr("href", "#section-solutions");
+						$('#vid-link').attr("href", "#section-who-we-serve");
+					}
 
 					// Force video to 100% width
 					$('.vidbg video').css({ 'min-width': '100%', 'min-height': '100%'});
@@ -101,11 +113,11 @@
 						$('#fullpage').fullpage({
 							fixedElements: '#content-info',
 							//fixedElements: '#masthead',
-							css3: true,
+							//css3: true,
 							scrollingSpeed: 700,
 							//scrollOverflow: true,
 							menu: '#content-info #footer-menu',
-							anchors: ['choose-connectview', 'who-we-serve', 'solutions', 'process', 'contact'],
+							anchors: ['choose-connectview', 'who-we-serve', 'solutions', 'process', 'experts', 'contact'],
 							responsive: 1200,
 							//autoScrolling: false,
 							resize: false,
@@ -115,12 +127,23 @@
 
 							afterResize: function () {
 								var docWidth = $(window).width();
-								if(docWidth<800) {
+								if(docWidth<768) {
 									//$.fn.fullpage.destroy();
-									$('#fullpage > .section, .fp-tableCell, .fp-scrollable').css({height: ""});
+									//$('#fullpage > .section, .fp-tableCell, .fp-scrollable').css({height: ""});
 									//$('.slimScrollDiv, .fp-scrollable').css({overflow: ''});
 								} else {
 
+								}
+							},
+							onLeave: function(index, nextIndex, direction){
+								var docWidth = $(window).width();
+								if(docWidth>1200) {
+									if($('#section-primary').hasClass('active')) {
+										$('#masthead').removeClass('scrolled');
+									}
+									if(!$('#section-primary').hasClass('active')) {
+										$('#masthead').addClass('scrolled');
+									}
 								}
 							}
 						});
@@ -128,7 +151,6 @@
 				}
 
 				fullPageInit();
-
 
 				$('#solutions-slider').flexslider({
 					animation: "slide",
@@ -172,49 +194,30 @@
 					directionNav: false
 				});
 
-				var video = document.getElementById('video1');
-
-				function play() {
-					if (video.paused) {
-						video.play();
-					}
-				}
-
-				if(video) { video.play(); }
-
-
-				var contactVid = document.getElementById("contact-vid");
-
-				$('#btn-contact').click(function(){
-
-					if (contactVid.paused) {
-						contactVid.play();
-						$('i').fadeOut();
-					}
-					else {
-						contactVid.pause();
-						$('i').fadeIn();
-					}
-				});
 
 				// Device testing
 				//==================================================================*/
 				if( $('body').hasClass('no-touch') ) {
 				}
 
-				if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-					$('#imac-btn, #ipad-btn, #iphone-btn').attr("href", "#section-solutions");
-					$('#vid-link').attr("href", "#section-who-we-serve");
+				if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+					$('#imac-btn').attr("href", "#section-solutions");
 					$('#home-link').attr("href", "#section-primary");
 					$('#end-link').attr("href", "#section-content");
 					$('#primary-link1').attr("href", "#section-primary");
 					$('#primary-link2').attr("href", "#section-who-we-serve");
 					$('#primary-link3').attr("href", "#section-solutions");
 					$('#primary-link4').attr("href", "#section-process");
-					$('#primary-link5').attr("href", "#section-contact");
+					$('#primary-link5').attr("href", "#section-experts");
+					$('#primary-link6').attr("href", "#section-contact");
 					$('.section-container').css({'padding-bottom': 60 });
+					$('#vid-link').attr("href", "#section-who-we-serve");
 
-					$("#btn-contact").remove();
+					//alert('test');
+
+					//$('#content-info').hide();
+
+					$("#btn-contact, #vid-bg, .overlay").remove();
 
 					//$('.card-content').cl
 
@@ -249,25 +252,6 @@
 						slider.css({width: docWidth});
 					});
 				}
-
-				$(contactVid).click(function(){
-
-					if (contactVid.paused) {
-						contactVid.play();
-						$('i').fadeOut();
-					}
-					else {
-						contactVid.pause();
-						$('i').fadeIn();
-					}
-				});
-
-
-				$(contactVid).bind("ended", function() {
-					$('i').fadeIn();
-					this.currentTime = 0;
-					//this.pause();
-				});
 			}
 		},
 
@@ -307,13 +291,9 @@ $(document).ready(UTIL.loadEvents);
 			var docPos = $(window).scrollTop();
 
 			if(docPos>80) {
-				if(!$('#masthead').hasClass('scrolled')) {
-					$('#masthead').addClass('scrolled');
-				}
+				$('#masthead').addClass('scrolled');
 			} else {
-				if($('#masthead').hasClass('scrolled')) {
-					$('#masthead').removeClass('scrolled');
-				}
+				$('#masthead').removeClass('scrolled');
 			}
 		}
 
@@ -345,16 +325,8 @@ $(document).ready(UTIL.loadEvents);
 		showLongInfo();
 
 		//var exampleSlider = $('#slider').data('flexslider');
-		$('#iphone-btn').click(function(){
-			$('#solutions-slider').flexslider(0);
-		});
-
-		$('#ipad-btn').click(function(){
-			$('#solutions-slider').flexslider(1);
-		});
-
-		$('#imac-btn').click(function(){
-			$('#solutions-slider').flexslider(2);
-		});
+		$('#iphone-btn').click(function(){ $('#solutions-slider').flexslider(0); });
+		$('#ipad-btn').click(function(){ $('#solutions-slider').flexslider(1); });
+		$('#imac-btn').click(function(){ $('#solutions-slider').flexslider(2); });
 	});
 })(jQuery); // Fully reference jQuery after this point.

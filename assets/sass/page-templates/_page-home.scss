@@ -15,22 +15,18 @@
 //==================================================================*/
 .section.section-primary {
 	position: relative;
-	background: black;
-	@include rem('padding-top', 80px);
+	background: url("../img/img_government.jpg") no-repeat;
+	background-size: cover;
+	display: block;
 
-	@include media-query (md_max) {
-		@include rem('padding-top', 40px);
-		@include rem('padding-bottom', 40px);
-	}
-
-	@include media-query (xs_max) {
-		@include rem('margin-bottom', 20px);
-	}
-
-	@include media-query (sm_max) {
-		background: url("../img/img_government.jpg") no-repeat;
-		background-size: cover;
-	}
+//	@include media-query (md_max) {
+//		@include rem('padding-top', 40px);
+//		@include rem('padding-bottom', 40px);
+//	}
+//
+//	@include media-query (xs_max) {
+//		@include rem('margin-bottom', 20px);
+//	}
 
 	.container {
 		@include rem('padding-top', 30px);
@@ -49,11 +45,19 @@
 	}
 
 	.slides {
+		height: 400px;
+//		@include rem('padding-top', 20px);
+//		@include rem('padding-bottom', 20px);
 
 		li {
+//			height: 100%;
+//			display: block;
+			@include media-query (sm) {
+				@include rem('padding-top', 30px);
+			}
 
-			.fit-text {
-
+			.fit-headline {
+				@extend %vertical-align;
 			}
 		}
 	}
@@ -90,21 +94,27 @@
 
 	.flexslider-controls {
 		z-index: 99;
+		width: 80%;
+		margin: 0 10%;
 
 		@include media-query (sm) {
-			top: 80px;
+			top: 70px;
 			z-index: 99;
 		}
 
 		button {
-			margin-left: 8px;
-			margin-rigth: 8px;
+			width: 100%;
+			margin: 0;
 			@include rem('padding', 6px 30px);
 			color: #4e5055;
 			@include font-size(16px);
 			@include border-radius(10px);
 
-			@include media-query (sm_max) { margin-top: 12px; }
+			@include media-query (sm) {
+				margin-top: 0;
+				margin-left: 8px;
+				margin-right: 8px;
+			}
 
 			&:hover { color: #203d76; }
 		}
@@ -129,7 +139,7 @@
 
 	.flexslider {
 		li {
-			@include media-query (sm_max) {
+			@media (max-width: 767px) {
 				position: static !important;
 				margin: 0 !important;
 				opacity: 1 !important;
@@ -149,6 +159,7 @@
 		.process-image {
 			position: relative;
 			display: inline-block;
+			max-width: 100%;
 
 			&:after, &:before {
 				content: '';
@@ -184,37 +195,63 @@
 	}
 }
 
+
 // Fifth Section
 //==================================================================*/
+.section.section-experts {
+	@include rem('padding-top', 60px);
+
+	h1 {
+		margin-bottom: 22px;
+		@include font-size(36px);
+		line-height: 1;
+		color: #203d76;
+		text-transform: uppercase;
+		border: 1px solid #203d76;
+		@include rem('padding', 26px);
+		text-align: center;
+
+		@include media-query (md) { margin-bottom: 42px; }
+		@include media-query (lg) { margin-bottom: 62px; }
+	}
+}
+
+
+// Sixth Section
+//==================================================================*/
 .section.section-contact {
+
+	@include rem('padding-top', 20px);
+	@include rem('padding-bottom', 40px);
+
+	@include media-query (sm) {
+//		padding-bottom: none;
+	}
 
 	.iphone-wrap {
 		position: relative;
 		text-align: center;
+		margin: 0 auto;
+		width: 254px;
+		height: 480px;
+		text-align: left;
+		background: url("../img/img_connect-iphone.png");
 
 		@include media-query (sm_max) { margin-bottom: 20px; }
 
-		@include media-query (md) {
-			margin: 0 auto;
-			width: 254px;
-			height: 480px;
-			text-align: left;
-			background: url("../img/img_connect-iphone.png");
-		}
-
-		video {
-			@include media-query (sm) {
-				position: relative;
-				left: 20px;
-				top: 47px;
-			}
+		video, .iphone-img {
+			position: relative;
+			left: 20px;
+			top: 47px;
+			width: 212px;
+			height: 374px;
+			background-size: cover;
+			display: block;
 
 			&:hover {
 				cursor: pointer;
 
-				i {
-					display: block;
-				}
+				i { display: block; }
 			}
 		}
 

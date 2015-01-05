@@ -81,6 +81,7 @@ module.exports = function(grunt) {
         ],
         //tasks: ['jshint', 'uglify', 'version']
         tasks: ['jshint', 'uglify']
+        //tasks: ['uglify']
       },
       //livereload: {
       //  // Browser live reloading

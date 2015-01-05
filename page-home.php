@@ -25,9 +25,9 @@ Template Name: Page - Home
 					<li>
 						<div class="fit-headline">
 							<?php echo $val; ?>
-						</div>
-						<div class="section-link center">
-							<a id="vid-link" href="#who-we-serve"><img src="<?php echo get_template_directory_uri() . '/assets/img/i_arrow-link.png'; ?>" alt=""/></a>
+							<div class="center">
+								<a id="vid-link" href="#who-we-serve"><img src="<?php echo get_template_directory_uri() . '/assets/img/i_arrow-link.png'; ?>" alt=""/></a>
+							</div>
 						</div>
 					</li>
 				<?php endforeach; ?>
@@ -240,30 +240,81 @@ Template Name: Page - Home
 			</div>
 		</div>
 	</section>
+
+	<?php
+		$expert_values = simple_fields_fieldgroup("experts");
+		$i = 0;
+	?>
+	<section id="section-experts" data-anchor="experts" class="section section-experts">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<h1>Subject Matter Experts</h1>
+				</div>
+			</div>
+			<?php foreach($expert_values as $value) : ?>
+			<div class="row expert">
+				<?php
+					$thumb      = simple_fields_values("expert_img")[$i]['image']['expert-thumb'];
+					$name       = simple_fields_values("expert_name")[$i];
+					$title      = simple_fields_values("expert_title")[$i];
+					$blurb      = simple_fields_values("expert_blurb")[$i];
+					$twitter    = simple_fields_values("expert_twitter")[$i];
+					$linkedin   = simple_fields_values("expert_linkedin")[$i];
+					$email      = simple_fields_values("expert_email")[$i];
+				?>
+				<?php if($thumb != 'Missing Attachment'): ?>
+					<div class="col-xs-2">
+						<?php echo $thumb; ?>
+					</div>
+				<?php endif; ?>
+				<div class="col-xs-10">
+					<?php if($name){
+						echo '<div class="header"><h2 class="name">' . $name . '</h2>';
+
+						if($twitter || $linkedin || $email) {
+							echo '<div class="social-icons">';
+
+							if($twitter) { echo '<a target="_blank" class="icon icon-twitter" href="' . $twitter . '">Twitter</a>'; }
+							if($linkedin) { echo '<a target="_blank" class="icon icon-linkedin" href="' . $linkedin . '">LinkedIn</a>'; }
+							if($email) { echo '<a target="_blank" class="icon icon-email" href="' . $email . '">Email</a>'; }
+
+							echo '</div>';
+						}
+
+						echo '</div>';
+					} ?>
+
+					<?php echo $title ? '<h3 class="title">' . $title . '</h3>' : '' ; ?>
+					<?php echo $blurb ? '<div class="blurb">' . $blurb . '</div>' : '' ; ?>
+					<?php $i++; ?>
+				</div>
+			</div>
+			<?php endforeach; ?>
+		</div>
+	</section>
+
 	<section id="section-contact" data-anchor="contact" class="section section-contact">
 		<?php
 			$contact_form		= types_render_field("contact-form", array("raw"=>true));
 			$contact_image		= types_render_field("contact-image", array("raw"=>true));
+			$contact_section1	= types_render_field("contact-section1", array("raw"=>true));
 			$contact_mp4		= types_render_field("contact-mp4", array("raw"=>true));
 			$contact_ogv		= types_render_field("contact-ogv", array("raw"=>true));
 		?>
 
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-6 col-md-4 col-md-offset-2">
+				<div class="col-sm-6 col-md-3">
+					<?php echo $contact_section1; ?>
+				</div>
+				<div class="col-sm-6 col-md-4">
 					<div class="iphone-wrap">
-						<i id="btn-contact" class="fa fa-play-circle"></i>
-						<video class="video" id="contact-vid" preload="true">
-							<source src="<?php echo $contact_mp4; ?>" type="video/mp4">
-							<source src="<?php echo $contact_ogv; ?>" type="video/ogg">
-						</video>
-
-						<?php /*
 						<a href="<?php echo get_post_meta($post->ID, 'wpcf-image-link', true); ?>" target="_blank" class="iphone-img" style="background-image: url('<?php echo get_post_meta($post->ID, 'wpcf-contact-image', true); ?>')">
-						</a>*/ ?>
+						</a>
 					</div>
 				</div>
-				<div class="col-sm-6 col-md-5 col-lg-6">
+				<div class="col-sm-8 col-sm-offset-2 col-md-5 col-md-offset-0">
 					<div class="form-header">
 						<h3>Start the Conversation <span>Today!</span></h3>
 					</div>
@@ -272,12 +323,6 @@ Template Name: Page - Home
 						<address>
 							<?php echo ot_get_option( 'address' ); ?>
 						</address>
-							<?php /*
-						<ul class="social-connections">
-							<li class="social-icon facebook"><a target="_blank" href="<?php echo ot_get_option( 'facebook' ); ?>">Facebook</a></li>
-							<li class="social-icon twitter"><a target="_blank" href="<?php echo ot_get_option( 'twitter' ); ?>">Twitter</a></li>
-							<li class="social-icon linkedin"><a target="_blank" href="<?php echo ot_get_option( 'linkedin' ); ?>">LinkedIn</a></li>
-						</ul>*/ ?>
 					</div>
 				</div>
 			</div>

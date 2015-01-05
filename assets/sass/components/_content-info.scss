@@ -6,9 +6,7 @@
 	width: 100%;
 	z-index: 9999;
 
-	@include media-query (sm) {
-		display: block;
-	}
+	@include media-query (sm) { display: block; }
 
 	nav {
 		background: #606060;
@@ -20,8 +18,12 @@
 			@extend %reset;
 			list-style-type: none;
 
+			.home {
+				width: 5%;
+			}
+
 			li {
-				width: 25%;
+				width: 19%;
 				float: left;
 				@include transition(.2s ease-in);
 
@@ -41,15 +43,25 @@
 					text-align: center;
 					color: #ccc;
 					font-family: $header_font_family;
-					@include font-size(20px);
+					@include font-size(18px);
 					font-weight: 100;
 					line-height: 1;
 					text-transform: uppercase;
 					@include transition(.2s ease-in);
 
+					@include media-query (md) {
+						@include font-size(20px);
+						line-height: 1;
+					}
+
 					&:hover {
 						color: #fff;
 						text-decoration: none;
+					}
+
+					&:active, &:visited, &:focus {
+						text-decoration: none;
+						outline: none;
 					}
 				}
 			}
