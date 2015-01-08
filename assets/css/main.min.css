@@ -676,27 +676,24 @@ header.masthead {
       border: 2px solid #ddd; } }
 /* line 91, ../sass/components/_block-ipad.scss */
 .block-ipad .content .card-content, .block-ipad .content .card-content-hover {
+  position: absolute;
   width: 100%;
   height: 100%;
   -moz-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out; }
-  @media (min-width: 768px) {
-    /* line 91, ../sass/components/_block-ipad.scss */
-    .block-ipad .content .card-content, .block-ipad .content .card-content-hover {
-      position: absolute; } }
-/* line 104, ../sass/components/_block-ipad.scss */
+/* line 101, ../sass/components/_block-ipad.scss */
 .block-ipad .content .card-content {
   top: 0;
   left: 0;
   padding: 20px;
   color: #3b3b3b;
   background: #fff; }
-  /* line 111, ../sass/components/_block-ipad.scss */
+  /* line 108, ../sass/components/_block-ipad.scss */
   .block-ipad .content .card-content span:first-child {
     font-weight: 100; }
-  /* line 113, ../sass/components/_block-ipad.scss */
+  /* line 110, ../sass/components/_block-ipad.scss */
   .block-ipad .content .card-content .contain {
     margin: 0 20px;
     padding: 20px;
@@ -704,13 +701,13 @@ header.masthead {
     text-transform: uppercase;
     font-family: 'museo', sans-serif;
     color: #3b3b3b; }
-    /* line 122, ../sass/components/_block-ipad.scss */
+    /* line 119, ../sass/components/_block-ipad.scss */
     .block-ipad .content .card-content .contain p {
       margin: 0; }
-    /* line 123, ../sass/components/_block-ipad.scss */
+    /* line 120, ../sass/components/_block-ipad.scss */
     .block-ipad .content .card-content .contain p + p {
       margin-top: 10px; }
-/* line 130, ../sass/components/_block-ipad.scss */
+/* line 127, ../sass/components/_block-ipad.scss */
 .block-ipad .content .card-content-hover {
   top: 0;
   left: -100%;
@@ -723,22 +720,22 @@ header.masthead {
   line-height: 1.4rem;
   line-height: 1; }
   @media (min-width: 768px) {
-    /* line 130, ../sass/components/_block-ipad.scss */
+    /* line 127, ../sass/components/_block-ipad.scss */
     .block-ipad .content .card-content-hover {
       padding: 34px;
       padding: 2.125rem; } }
-  /* line 141, ../sass/components/_block-ipad.scss */
+  /* line 138, ../sass/components/_block-ipad.scss */
   .block-ipad .content .card-content-hover:hover {
     cursor: pointer; }
-/* line 145, ../sass/components/_block-ipad.scss */
+/* line 142, ../sass/components/_block-ipad.scss */
 .block-ipad .content .mobile-active .card-content-hover {
   left: 0;
-  -moz-transition: 0.2s;
-  -o-transition: 0.2s;
-  -webkit-transition: 0.2s;
-  transition: 0.2s; }
+  -moz-transition: 1s;
+  -o-transition: 1s;
+  -webkit-transition: 1s;
+  transition: 1s; }
 
-/* line 155, ../sass/components/_block-ipad.scss */
+/* line 152, ../sass/components/_block-ipad.scss */
 .block-ipad .long-info-content {
   position: absolute;
   top: 0;
@@ -752,11 +749,11 @@ header.masthead {
   transition: 0.4s;
   z-index: 1; }
   @media (min-width: 992px) {
-    /* line 155, ../sass/components/_block-ipad.scss */
+    /* line 152, ../sass/components/_block-ipad.scss */
     .block-ipad .long-info-content {
       left: 94px;
       top: 27px; } }
-  /* line 170, ../sass/components/_block-ipad.scss */
+  /* line 167, ../sass/components/_block-ipad.scss */
   .block-ipad .long-info-content.active {
     display: block;
     width: 80%;
@@ -765,11 +762,11 @@ header.masthead {
     z-index: 99;
     border: 2px solid #ddd; }
     @media (min-width: 992px) {
-      /* line 170, ../sass/components/_block-ipad.scss */
+      /* line 167, ../sass/components/_block-ipad.scss */
       .block-ipad .long-info-content.active {
         width: 594px;
         height: 432px; } }
-  /* line 184, ../sass/components/_block-ipad.scss */
+  /* line 181, ../sass/components/_block-ipad.scss */
   .block-ipad .long-info-content .close {
     position: absolute;
     top: 20px;
@@ -777,7 +774,7 @@ header.masthead {
     width: 28px;
     height: 28px;
     background: url("../img/i_x.png"); }
-/* line 194, ../sass/components/_block-ipad.scss */
+/* line 191, ../sass/components/_block-ipad.scss */
 .block-ipad .long-info {
   display: none;
   padding: 0 40px;
@@ -786,18 +783,18 @@ header.masthead {
   text-align: left;
   display: table;
   height: 100%; }
-  /* line 202, ../sass/components/_block-ipad.scss */
+  /* line 199, ../sass/components/_block-ipad.scss */
   .block-ipad .long-info .long-content {
     display: table-cell;
     vertical-align: middle; }
 
-/* line 220, ../sass/components/_block-ipad.scss */
+/* line 217, ../sass/components/_block-ipad.scss */
 .no-touch .block-ipad .content .card:hover .card-content-hover {
   left: 0; }
-/* line 223, ../sass/components/_block-ipad.scss */
+/* line 220, ../sass/components/_block-ipad.scss */
 .no-touch .block-ipad .content .card:hover .card-content {
   left: 100%; }
-/* line 230, ../sass/components/_block-ipad.scss */
+/* line 227, ../sass/components/_block-ipad.scss */
 .no-touch .block-ipad .long-info-content {
   position: absolute;
   left: 94px;
@@ -811,7 +808,7 @@ header.masthead {
   transition: 0.4s;
   z-index: 1; }
   @media (min-width: 768px) {
-    /* line 240, ../sass/components/_block-ipad.scss */
+    /* line 237, ../sass/components/_block-ipad.scss */
     .no-touch .block-ipad .long-info-content.active {
       display: block;
       width: 577px;
@@ -819,7 +816,7 @@ header.masthead {
       background: #203D76;
       z-index: 99;
       border: 2px solid #ddd; } }
-  /* line 252, ../sass/components/_block-ipad.scss */
+  /* line 249, ../sass/components/_block-ipad.scss */
   .no-touch .block-ipad .long-info-content .close {
     position: absolute;
     top: 20px;
@@ -827,7 +824,7 @@ header.masthead {
     width: 28px;
     height: 28px;
     background: url("../img/i_x.png"); }
-/* line 262, ../sass/components/_block-ipad.scss */
+/* line 259, ../sass/components/_block-ipad.scss */
 .no-touch .block-ipad .long-info {
   display: none;
   padding: 0 40px;
@@ -836,7 +833,7 @@ header.masthead {
   text-align: left;
   display: table;
   height: 100%; }
-  /* line 270, ../sass/components/_block-ipad.scss */
+  /* line 267, ../sass/components/_block-ipad.scss */
   .no-touch .block-ipad .long-info .long-content {
     display: table-cell;
     vertical-align: middle; }
@@ -1053,15 +1050,43 @@ header.masthead {
       bottom: 19px;
       width: 116px;
       margin-left: -58px; } }
+  /* line 38, ../sass/components/_iphone-ipad-imac.scss */
+  .ipad [rel="wp-video-lightbox"], .iphone [rel="wp-video-lightbox"], .imac [rel="wp-video-lightbox"] {
+    width: 100%;
+    display: block; }
+    @media (min-width: 768px) {
+      /* line 38, ../sass/components/_iphone-ipad-imac.scss */
+      .ipad [rel="wp-video-lightbox"], .iphone [rel="wp-video-lightbox"], .imac [rel="wp-video-lightbox"] {
+        width: auto;
+        display: block;
+        position: absolute;
+        right: -112px;
+        top: 62px; } }
+    /* line 50, ../sass/components/_iphone-ipad-imac.scss */
+    .ipad [rel="wp-video-lightbox"] .imac-play, .iphone [rel="wp-video-lightbox"] .imac-play, .imac [rel="wp-video-lightbox"] .imac-play {
+      margin-bottom: 12px;
+      font-size: 52px;
+      color: rgba(255, 255, 255, 0.8);
+      -moz-transition: 0.2s;
+      -o-transition: 0.2s;
+      -webkit-transition: 0.2s;
+      transition: 0.2s; }
+      @media (min-width: 768px) {
+        /* line 50, ../sass/components/_iphone-ipad-imac.scss */
+        .ipad [rel="wp-video-lightbox"] .imac-play, .iphone [rel="wp-video-lightbox"] .imac-play, .imac [rel="wp-video-lightbox"] .imac-play {
+          font-size: 92px; } }
+      /* line 60, ../sass/components/_iphone-ipad-imac.scss */
+      .ipad [rel="wp-video-lightbox"] .imac-play:hover, .iphone [rel="wp-video-lightbox"] .imac-play:hover, .imac [rel="wp-video-lightbox"] .imac-play:hover {
+        color: #fff; }
 
 @media (min-width: 768px) {
-  /* line 39, ../sass/components/_iphone-ipad-imac.scss */
+  /* line 65, ../sass/components/_iphone-ipad-imac.scss */
   .iphone {
     background: url("../img/img_iphone.png");
     width: 201px;
     height: 367px; } }
 @media (min-width: 768px) {
-  /* line 46, ../sass/components/_iphone-ipad-imac.scss */
+  /* line 72, ../sass/components/_iphone-ipad-imac.scss */
   .iphone .block {
     left: 19px;
     top: 124px;
@@ -1069,13 +1094,13 @@ header.masthead {
     width: 161px; } }
 
 @media (min-width: 768px) {
-  /* line 56, ../sass/components/_iphone-ipad-imac.scss */
+  /* line 82, ../sass/components/_iphone-ipad-imac.scss */
   .ipad {
     background: url("../img/img_ipad.png");
     width: 308px;
     height: 410px; } }
 @media (min-width: 768px) {
-  /* line 63, ../sass/components/_iphone-ipad-imac.scss */
+  /* line 89, ../sass/components/_iphone-ipad-imac.scss */
   .ipad .block {
     left: 30px;
     top: 179px;
@@ -1083,13 +1108,13 @@ header.masthead {
     width: 247px; } }
 
 @media (min-width: 768px) {
-  /* line 73, ../sass/components/_iphone-ipad-imac.scss */
+  /* line 99, ../sass/components/_iphone-ipad-imac.scss */
   .imac {
     background: url("../img/img_imac.png");
     width: 384px;
     height: 326px; } }
 @media (min-width: 768px) {
-  /* line 80, ../sass/components/_iphone-ipad-imac.scss */
+  /* line 106, ../sass/components/_iphone-ipad-imac.scss */
   .imac .block {
     left: 15px;
     top: 16px;

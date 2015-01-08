@@ -47,6 +47,7 @@
 					if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
 						testYPos();
 					}
+					testYPos();
 				});
 
 
@@ -103,7 +104,9 @@
 
 					// Remove elements on desktop
 					if(docWidth<responsiveWidth) {
-						$('#imac-btn, #ipad-btn, #iphone-btn').attr("href", "#section-solutions");
+						$('#iphone-btn').attr("href", "#section-solutions");
+						$('#ipad-btn').attr("href", "#section-solutions");
+						$('#imac-btn').attr("href", "#section-solutions");
 						$('#vid-link').attr("href", "#section-who-we-serve");
 					}
 
@@ -212,6 +215,8 @@
 				}
 
 				if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+					$('#iphone-btn').attr("href", "#section-solutions");
+					$('#ipad-btn').attr("href", "#section-solutions");
 					$('#imac-btn').attr("href", "#section-solutions");
 					$('#home-link').attr("href", "#section-primary");
 					$('#end-link').attr("href", "#section-content");
@@ -226,44 +231,10 @@
 
 					$('.section-whoweserve, .section-consulting, .section-experts, .section-contact').css({'padding-top': 60});
 
-					//alert('test');
-
-					//$('#content-info').hide();
-
-					$("#btn-contact, #vid-bg, .overlay").remove();
-
-					//$('.card-content').cl
-
-					// Touch events
-					//==================================================================*/
-					$('.card-content').on({ 'touchend' : function(){
-						$('.card-content').not(this).parent().removeClass('mobile-active');
-						$(this).parent().addClass('mobile-active');
-					}});
-
-					$('#solutions-nav').on({ 'touchend' : function(){
-						$('.card-content').not(this).parent().removeClass('mobile-active');
-					}});
-
-					$('.mobile-active .card-content-hover').on({ 'touchend' : function(){
-						var dataTarget = $(this).attr('data-link');
-						console.log(dataTarget);
-						$('.long-info-content').addClass('active');
-						$('#' + dataTarget + '').show();
-					}});
-
-					$('.long-info-content .close').on({ 'touchmove' : function(){
-						$('.long-info-content').removeClass('active');
-						$('.long-info').hide();
-					}});
-
-					$( window ).on( "orientationchange", function( event ) {
-						var slider = $('#section-solutions .flexslider ul li');
-						var docWidth            = $(window).width();
-
-						// Force flexslider li's to 100% width
-						slider.css({width: docWidth});
-					});
+					$(".section.section-primary").css({ background: blue });
+					$("#btn-contact").remove();
+					$(".vid-bg").hide();
+					$(".overlay").hide();
 				}
 			}
 		},
@@ -299,8 +270,6 @@
 $(document).ready(UTIL.loadEvents);
 	$(window).load( function() {
 		$('.card-content .contain span').wideText();
-
-
 
 		function showLongInfo() {
 			var scope  = $('#section-solutions');
@@ -338,5 +307,40 @@ $(document).ready(UTIL.loadEvents);
 		}
 
 		if(video) { video.play(); }
+
+		if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+			$('.vidbg').remove();
+
+			// Touch events
+			//==================================================================*/
+			$('.card-content').on({ 'touchend' : function(){
+				$('.card-content').not(this).parent().removeClass('mobile-active');
+				$(this).parent().addClass('mobile-active');
+			}});
+
+			$('#solutions-nav').on({ 'touchend' : function(){
+				$('.card-content').not(this).parent().removeClass('mobile-active');
+			}});
+
+			$('.card-content-hover').on({ 'touchleave' : function(){
+				var dataTarget = $(this).attr('data-link');
+				console.log(dataTarget);
+				$('.long-info-content').addClass('active');
+				$('#' + dataTarget + '').show();
+			}});
+
+			$('.long-info-content .close').on({ 'touchmove' : function(){
+				$('.long-info-content').removeClass('active');
+				$('.long-info').hide();
+			}});
+
+			$( window ).on( "orientationchange", function( event ) {
+				var slider = $('#section-solutions .flexslider ul li');
+				var docWidth            = $(window).width();
+
+				// Force flexslider li's to 100% width
+				slider.css({width: docWidth});
+			});
+		}
 	});
 })(jQuery); // Fully reference jQuery after this point.
