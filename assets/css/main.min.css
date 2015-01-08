@@ -320,18 +320,20 @@ form {
     line-height: 1; }
   /* line 22, ../sass/elements/_expert.scss */
   .expert .blurb {
-    margin-top: 12px;
-    font-size: 13px;
-    font-size: 0.8125rem;
-    line-height: 18.2px;
-    line-height: 1.1375rem;
-    color: #555454; }
-  /* line 28, ../sass/elements/_expert.scss */
+    margin-top: 12px; }
+    /* line 25, ../sass/elements/_expert.scss */
+    .expert .blurb p {
+      font-size: 13px;
+      font-size: 0.8125rem;
+      line-height: 17px;
+      line-height: 1.0625rem;
+      color: #555454; }
+  /* line 31, ../sass/elements/_expert.scss */
   .expert .social-icons {
     float: left;
     margin-left: 12px;
     margin-top: 6px; }
-    /* line 33, ../sass/elements/_expert.scss */
+    /* line 36, ../sass/elements/_expert.scss */
     .expert .social-icons .icon {
       width: 20px;
       height: 20px;
@@ -339,13 +341,13 @@ form {
       margin-right: 2px;
       background-repeat: no-repeat;
       text-indent: -9999em; }
-      /* line 41, ../sass/elements/_expert.scss */
+      /* line 44, ../sass/elements/_expert.scss */
       .expert .social-icons .icon.icon-twitter {
         background-image: url("../img/sm_twitter.jpg"); }
-      /* line 45, ../sass/elements/_expert.scss */
+      /* line 48, ../sass/elements/_expert.scss */
       .expert .social-icons .icon.icon-linkedin {
         background-image: url("../img/sm_linkedin.jpg"); }
-      /* line 49, ../sass/elements/_expert.scss */
+      /* line 52, ../sass/elements/_expert.scss */
       .expert .social-icons .icon.icon-email {
         background-image: url("../img/sm_email.jpg"); }
 

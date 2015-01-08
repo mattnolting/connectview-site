@@ -32,15 +32,25 @@
 
 				// Force video to fill first screen
 				//==================================================================*/
-				if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-					//$('#vid-link').attr("href", "#section-who-we-serve");
-					//$("#btn-contact, #vid-bg, .overlay").remove();
-					//alert('device');
+
+				function testYPos() {
+					var docPos = $(window).scrollTop();
+
+					if(docPos>80) {
+						$('#masthead').addClass('scrolled');
+					} else {
+						$('#masthead').removeClass('scrolled');
+					}
 				}
 
-				$('.vidbg video').css({ 'min-width': '100%', 'min-height': '100%'});
-				
+				$(window).scroll(function(){
+					if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+						testYPos();
+					}
+				});
 
+
+				$('.vidbg video').css({ 'min-width': '100%', 'min-height': '100%'});
 
 				$('#section-primary').flexslider({
 					animation: "fade",
@@ -118,9 +128,10 @@
 							//scrollOverflow: true,
 							menu: '#content-info #footer-menu',
 							anchors: ['choose-connectview', 'who-we-serve', 'solutions', 'process', 'experts', 'contact'],
-							responsive: 1200,
-							//autoScrolling: false,
+							//responsive: 1400,
+							autoScrolling: false,
 							resize: false,
+
 
 							after: function () {
 							},
@@ -213,6 +224,8 @@
 					$('.section-container').css({'padding-bottom': 60 });
 					$('#vid-link').attr("href", "#section-who-we-serve");
 
+					$('.section-whoweserve, .section-consulting, .section-experts, .section-contact').css({'padding-top': 60});
+
 					//alert('test');
 
 					//$('#content-info').hide();
@@ -287,19 +300,7 @@ $(document).ready(UTIL.loadEvents);
 	$(window).load( function() {
 		$('.card-content .contain span').wideText();
 
-		function testYPos() {
-			var docPos = $(window).scrollTop();
 
-			if(docPos>80) {
-				$('#masthead').addClass('scrolled');
-			} else {
-				$('#masthead').removeClass('scrolled');
-			}
-		}
-
-		$(window).scroll(function(){
-			testYPos();
-		});
 
 		function showLongInfo() {
 			var scope  = $('#section-solutions');
@@ -328,5 +329,14 @@ $(document).ready(UTIL.loadEvents);
 		$('#iphone-btn').click(function(){ $('#solutions-slider').flexslider(0); });
 		$('#ipad-btn').click(function(){ $('#solutions-slider').flexslider(1); });
 		$('#imac-btn').click(function(){ $('#solutions-slider').flexslider(2); });
+
+		var video = document.getElementById('video1');
+		function play() {
+			if (video.paused) {
+				video.play();
+			}
+		}
+
+		if(video) { video.play(); }
 	});
 })(jQuery); // Fully reference jQuery after this point.

@@ -1,0 +1,8 @@
+.thumbnail {
+	@extend %reset;
+	width: auto;
+	display: inline;
+	border: none;
+	background: none;
+	@include border-radius(0);
+}
