@@ -55,7 +55,15 @@ Template Name: Page - Home
 				<div class="block block-blue">
 					<h2 class="caps"><?php echo $block1_title; ?></h2>
 					<p><?php echo $block1_text; ?></p>
+					<?php
+						$video = types_render_field("whoweserve-popup-video-iphone", array("raw"=>true));
+						$button = "<i class='imac-play fa fa-play-circle'></i>";
+						$popup = '[video_lightbox_vimeo5 video_id="' . $video . '" width="640" height="480" anchor="' . $button . '"]';
 
+						if($video) {
+							echo do_shortcode($popup);
+						}
+					?>
 					<a id="iphone-btn" href="#solutions" class="btn btn-small">Learn More</a>
 				</div>
 
@@ -64,7 +72,15 @@ Template Name: Page - Home
 				<div class="block block-blue">
 					<h2 class="caps"><?php echo $block2_title; ?></h2>
 					<p><?php echo $block2_text; ?></p>
+					<?php
+						$video = types_render_field("whoweserve-popup-video-ipad", array("raw"=>true));
+						$button = "<i class='imac-play fa fa-play-circle'></i>";
+						$popup = '[video_lightbox_vimeo5 video_id="' . $video . '" width="640" height="480" anchor="' . $button . '"]';
 
+						if($video) {
+							echo do_shortcode($popup);
+						}
+					?>
 					<a id="ipad-btn" href="#solutions" class="btn btn-small">Learn More</a>
 				</div>
 			</div>

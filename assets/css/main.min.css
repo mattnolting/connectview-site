@@ -1092,29 +1092,47 @@ header.masthead {
     top: 124px;
     height: 199px;
     width: 161px; } }
+/* line 81, ../sass/components/_iphone-ipad-imac.scss */
+.iphone [rel="wp-video-lightbox"] {
+  width: 100%;
+  display: block; }
+  @media (min-width: 768px) {
+    /* line 81, ../sass/components/_iphone-ipad-imac.scss */
+    .iphone [rel="wp-video-lightbox"] {
+      width: auto;
+      display: block;
+      position: absolute;
+      right: auto;
+      top: -88px;
+      left: 40px; } }
 
 @media (min-width: 768px) {
-  /* line 82, ../sass/components/_iphone-ipad-imac.scss */
+  /* line 96, ../sass/components/_iphone-ipad-imac.scss */
   .ipad {
     background: url("../img/img_ipad.png");
     width: 308px;
     height: 410px; } }
 @media (min-width: 768px) {
-  /* line 89, ../sass/components/_iphone-ipad-imac.scss */
+  /* line 103, ../sass/components/_iphone-ipad-imac.scss */
   .ipad .block {
     left: 30px;
     top: 179px;
     height: 193px;
     width: 247px; } }
+@media (min-width: 768px) {
+  /* line 112, ../sass/components/_iphone-ipad-imac.scss */
+  .ipad [rel="wp-video-lightbox"] {
+    right: 88px;
+    top: -116px; } }
 
 @media (min-width: 768px) {
-  /* line 99, ../sass/components/_iphone-ipad-imac.scss */
+  /* line 121, ../sass/components/_iphone-ipad-imac.scss */
   .imac {
     background: url("../img/img_imac.png");
     width: 384px;
     height: 326px; } }
 @media (min-width: 768px) {
-  /* line 106, ../sass/components/_iphone-ipad-imac.scss */
+  /* line 128, ../sass/components/_iphone-ipad-imac.scss */
   .imac .block {
     left: 15px;
     top: 16px;

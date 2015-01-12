@@ -77,6 +77,20 @@
 			width: 161px;
 		}
 	}
+
+	[rel="wp-video-lightbox"] {
+		width: 100%;
+		display: block;
+
+		@include media-query(sm) {
+			width: auto;
+			display: block;
+			position: absolute;
+			right: auto;
+			top: -88px;
+			left: 40px;
+		}
+	}
 }
 
 .ipad {
@@ -92,6 +106,14 @@
 			top: 179px;
 			height: 193px;
 			width: 247px;
+		}
+	}
+
+	[rel="wp-video-lightbox"] {
+
+		@include media-query(sm) {
+			right: 88px;
+			top: -116px;
 		}
 	}
 }
