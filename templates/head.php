@@ -9,4 +9,10 @@
 	<?php wp_head(); ?>
 	<link rel="icon" type="image/png" href="wp-content/themes/roots-sass/favicon.png">
 	<link rel="alternate" type="application/rss+xml" title="<?php echo get_bloginfo('name'); ?> Feed" href="<?php echo esc_url(get_feed_link()); ?>">
+	<?php
+		$ga_code = ot_get_option( 'ga_code' );
+		if($ga_code) {
+			echo $ga_code;
+		}
+	?>
 </head>
